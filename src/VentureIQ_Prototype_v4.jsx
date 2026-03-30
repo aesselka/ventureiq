@@ -802,6 +802,11 @@ function Form({ go }) {
   const [previewFile, setPreviewFile] = useState(null);
 
   const [chatMsgs, setCM] = useState([{ r: 'a', t: lang === 'ru' ? "Привет! Помогаю заполнить заявку.\n\nДемо предзаполнено данными FastRoute (стадия Seed). Нажмите ⓘ рядом с любым документом — объясню что загружать и зачем." : "Hi! I'm here to help fill in your application.\n\nThe demo is pre-filled with FastRoute (Seed stage) data. Click ⓘ next to any document for guidance." }]);
+  useEffect(() => {
+    const msgRu = "Привет! Помогаю заполнить заявку.\n\nДемо предзаполнено данными FastRoute (стадия Seed). Нажмите ⓘ рядом с любым документом — объясню что загружать и зачем.";
+    const msgEn = "Hi! I'm here to help fill in your application.\n\nThe demo is pre-filled with FastRoute (Seed stage) data. Click ⓘ next to any document for guidance.";
+    setCM(p => [{r:'a', t: lang === 'ru' ? msgRu : msgEn}, ...p.slice(1)]);
+  }, [lang]);
   const [chatInp, setCI] = useState('');
   const [chatLoad, setCL] = useState(false);
   const [proactiveSent, setPS] = useState(false);
