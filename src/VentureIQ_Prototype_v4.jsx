@@ -24,17 +24,6 @@ const ILinkedIn = ({sz=13}) => <svg width={sz} height={sz} viewBox="0 0 24 24" f
 const IUser   = ({sz=13,col="#9ca3af"}) => <svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
 
 
-// ── Responsive hook ────────────────────────────────────────────────────────
-function useIsMobile() {
-  const [mob, setMob] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
-  useEffect(() => {
-    const fn = () => setMob(window.innerWidth < 768);
-    window.addEventListener('resize', fn);
-    return () => window.removeEventListener('resize', fn);
-  }, []);
-  return mob;
-}
-
 // ── Constants ──────────────────────────────────────────────────────────────
 const SC = { HOME:'home', FORM:'form', PROC:'proc', DASH:'dash', STATUS:'status' };
 const sc   = s => s>=7?'#16a34a':s>=5?'#d97706':'#dc2626';
@@ -401,8 +390,8 @@ function useAutosave(data, key = 'ventureiq_form_draft') {
 }
 
 // ── useIsMobile hook ───────────────────────────────────────────────────────
-function useIsMobile(bp = 700) {
-  const [mob, setMob] = useState(typeof window !== 'undefined' ? window.innerWidth < bp : false);
+function useIsMobile(bp = 768) {
+  const [mob, setMob] = useState(() => typeof window !== 'undefined' && window.innerWidth < bp);
   useEffect(() => {
     const h = () => setMob(window.innerWidth < bp);
     window.addEventListener('resize', h);
