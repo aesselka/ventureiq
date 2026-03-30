@@ -23,6 +23,18 @@ const IEye    = ({sz=13,col="#6b7280"}) => <svg width={sz} height={sz} viewBox="
 const ILinkedIn = ({sz=13}) => <svg width={sz} height={sz} viewBox="0 0 24 24" fill="#0077b5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>;
 const IUser   = ({sz=13,col="#9ca3af"}) => <svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
 
+
+// ── Responsive hook ────────────────────────────────────────────────────────
+function useIsMobile() {
+  const [mob, setMob] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
+  useEffect(() => {
+    const fn = () => setMob(window.innerWidth < 768);
+    window.addEventListener('resize', fn);
+    return () => window.removeEventListener('resize', fn);
+  }, []);
+  return mob;
+}
+
 // ── Constants ──────────────────────────────────────────────────────────────
 const SC = { HOME:'home', FORM:'form', PROC:'proc', DASH:'dash', STATUS:'status' };
 const sc   = s => s>=7?'#16a34a':s>=5?'#d97706':'#dc2626';
@@ -388,6 +400,18 @@ function useAutosave(data, key = 'ventureiq_form_draft') {
   return { loadDraft, lastSaved, restored, saveNow, clearDraft };
 }
 
+// ── useIsMobile hook ───────────────────────────────────────────────────────
+function useIsMobile(bp = 700) {
+  const [mob, setMob] = useState(typeof window !== 'undefined' ? window.innerWidth < bp : false);
+  useEffect(() => {
+    const h = () => setMob(window.innerWidth < bp);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, [bp]);
+  return mob;
+}
+
+
 // ── ValidatedInput ─────────────────────────────────────────────────────────
 function ValidatedInput({ style, value, onChange, validator, placeholder, disabled, multiline, rows }) {
   const [touched, setTouched] = useState(false);
@@ -639,6 +663,7 @@ function StatusPage({ go, lang = 'ru' }) {
 
 // ── Home ───────────────────────────────────────────────────────────────────
 function Home({ go }) {
+  const mob = useIsMobile();
   return (
     <div style={{ minHeight: 540, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2rem', padding: '3.5rem 1.5rem', background: T.bg }}>
       <div style={{ textAlign: 'center' }}>
@@ -649,7 +674,7 @@ function Home({ go }) {
         <h1 style={{ fontSize: 46, fontWeight: 800, color: T.text, margin: '0 0 .75rem', letterSpacing: '-1.5px', lineHeight: 1.1 }}>VentureIQ</h1>
         <p style={{ fontSize: 14, color: T.textMuted, maxWidth: 400, lineHeight: 1.75, margin: '0 auto' }}>Автоматизированный due diligence стартапов. 6 ИИ-агентов, Investment Score 1–10.</p>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', width: '100%', maxWidth: 540 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: '1rem', width: '100%', maxWidth: 540 }}>
         {[
           { l: 'Фаундерам', s: 'Подать заявку — ИИ-ассистент поможет', sc: SC.FORM, col: T.accent, bg: T.accentBg, border: T.accentBorder },
           { l: 'Инвесторам', s: 'Демо-отчёт с чатом Orchestrator', sc: SC.DASH, col: T.green, bg: T.greenBg, border: T.greenBorder },
@@ -671,6 +696,7 @@ function Home({ go }) {
 
 // ── Founder Block ──────────────────────────────────────────────────────────
 function FounderBlock({ founder, index, lang, onChange, onRemove }) {
+  const mob = useIsMobile();
   const t = LANGS[lang];
   const roles = lang === 'ru' ? ROLES_RU : ROLES_EN;
   const countries = lang === 'ru' ? COUNTRIES_RU : COUNTRIES_EN;
@@ -692,7 +718,7 @@ function FounderBlock({ founder, index, lang, onChange, onRemove }) {
       </div>
 
       {/* Row 1: Name + Country */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 8 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: 8, marginBottom: 8 }}>
         <div>
           <div style={C.label}>{t.name}</div>
           <ValidatedInput
@@ -710,7 +736,7 @@ function FounderBlock({ founder, index, lang, onChange, onRemove }) {
       </div>
 
       {/* Row 2: Role + LinkedIn URL */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 8 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: 8, marginBottom: 8 }}>
         <div>
           <div style={C.label}>{t.role}</div>
           <select style={C.inp} value={founder.role || 'CEO'} onChange={e => onChange({ role: e.target.value })}>
@@ -737,7 +763,7 @@ function FounderBlock({ founder, index, lang, onChange, onRemove }) {
       </div>
 
       {/* Row 3: Link type + URL */}
-      <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 8 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '140px 1fr', gap: 8 }}>
         <div>
           <div style={C.label}>{t.linkType}</div>
           <select style={C.inp} value={founder.linkType || linkTypes[0]} onChange={e => onChange({ linkType: e.target.value })}>
@@ -787,14 +813,11 @@ function Form({ go }) {
   const [previewFile, setPreviewFile] = useState(null);
 
   const [chatMsgs, setCM] = useState([{ r: 'a', t: lang === 'ru' ? "Привет! Помогаю заполнить заявку.\n\nДемо предзаполнено данными FastRoute (стадия Seed). Нажмите ⓘ рядом с любым документом — объясню что загружать и зачем." : "Hi! I'm here to help fill in your application.\n\nThe demo is pre-filled with FastRoute (Seed stage) data. Click ⓘ next to any document for guidance." }]);
-  useEffect(() => {
-    const msgRu = "Привет! Помогаю заполнить заявку.\nДемо предзаполнено данными FastRoute (стадия Seed). Нажмите ⓘ рядом с любым документом — объясню что загружать и зачем.";
-    const msgEn = "Hi! I'm here to help fill in your application.\nThe demo is pre-filled with FastRoute (Seed stage) data. Click ⓘ next to any document for guidance.";
-    setCM(p => [{r:'a', t: lang === 'ru' ? msgRu : msgEn}, ...p.slice(1)]);
-  }, [lang]);
   const [chatInp, setCI] = useState('');
   const [chatLoad, setCL] = useState(false);
   const [proactiveSent, setPS] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
+  const isMobile = useIsMobile();
   const chatEndRef = useRef(null);
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [chatMsgs, chatLoad]);
 
@@ -887,7 +910,7 @@ function Form({ go }) {
   const activities = lang === 'ru' ? ACTIVITIES_RU : ACTIVITIES_EN;
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '1rem', padding: '1rem 1rem 2rem', maxWidth: 1060, margin: '0 auto', background: T.bg, minHeight: '100vh' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 300px', gap: '1rem', padding: isMobile ? '.75rem .75rem 5rem' : '1rem 1rem 2rem', maxWidth: 1060, margin: '0 auto', background: T.bg, minHeight: '100vh' }}>
       {previewFile && <FilePreviewModal file={previewFile} onClose={() => setPreviewFile(null)} lang={lang} />}
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -930,7 +953,7 @@ function Form({ go }) {
 
           <div style={{ borderTop: `1px solid ${T.borderLight}`, margin: '0.75rem 0 1.25rem' }} />
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 12 }}>
             <div>
               <div style={C.label}>{t.company}</div>
               <ValidatedInput value={frm.company} onChange={e => setFrm(p => ({ ...p, company: e.target.value }))} validator={v => VALIDATORS.company(v, lang)} />
@@ -1122,36 +1145,105 @@ function Form({ go }) {
         </div>
       </div>
 
-      {/* ── AI Assistant ── */}
-      <div style={{ position: 'sticky', top: '1rem', height: 'fit-content' }}>
-        <div style={{ ...C.card, padding: 0, overflow: 'hidden' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '.875rem 1rem', borderBottom: `1px solid ${T.borderLight}`, background: '#FAFAF8' }}>
-            <div style={{ width: 30, height: 30, borderRadius: 9, background: T.accentBg, border: `1px solid ${T.accentBorder}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><IChat /></div>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: T.text }}>{t.assistantTitle}</div>
-              <div style={{ fontSize: 11, color: T.textSubtle }}>{t.assistantSub}</div>
+      {/* ── AI Assistant — desktop sidebar / mobile floating ── */}
+      {!isMobile && (
+        <div style={{ position: 'sticky', top: '1rem', height: 'fit-content' }}>
+          <div style={{ ...C.card, padding: 0, overflow: 'hidden' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '.875rem 1rem', borderBottom: `1px solid ${T.borderLight}`, background: '#FAFAF8' }}>
+              <div style={{ width: 30, height: 30, borderRadius: 9, background: T.accentBg, border: `1px solid ${T.accentBorder}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><IChat /></div>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: T.text }}>{t.assistantTitle}</div>
+                <div style={{ fontSize: 11, color: T.textSubtle }}>{t.assistantSub}</div>
+              </div>
+            </div>
+            <div style={{ height: 460, overflowY: 'auto', padding: '.75rem', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {chatMsgs.map((m, i) => (
+                <div key={i} style={{ display: 'flex', justifyContent: m.r === 'u' ? 'flex-end' : 'flex-start' }}>
+                  <div style={{ maxWidth: '92%', padding: '9px 13px', borderRadius: m.r === 'u' ? '14px 14px 3px 14px' : '3px 14px 14px 14px', background: m.r === 'u' ? T.accentBg : '#F3F1EC', fontSize: 13, lineHeight: 1.65, color: m.r === 'u' ? T.accent : T.text, whiteSpace: 'pre-wrap', border: m.r === 'u' ? `1px solid ${T.accentBorder}` : `1px solid ${T.borderLight}` }}>{m.t}</div>
+                </div>
+              ))}
+              {chatLoad && <div style={{ display: 'flex', gap: 5, padding: '9px 13px', background: '#F3F1EC', borderRadius: '3px 14px 14px 14px', width: 'fit-content', border: `1px solid ${T.borderLight}` }}>{[0,1,2].map(i => <span key={i} style={{ display: 'inline-block', width: 7, height: 7, borderRadius: '50%', background: T.textSubtle, animation: `dp 1.4s ${i*.2}s infinite` }} />)}</div>}
+              <div ref={chatEndRef} />
+            </div>
+            <div style={{ padding: '0 .75rem .5rem', display: 'flex', flexDirection: 'column', gap: 5 }}>
+              {(lang === 'ru' ? ['Что важно для pre-seed?', 'Что такое трекшн?'] : ['What matters for pre-seed?', 'What is traction?']).map(q =>
+                <button key={q} onClick={() => sendChat(q)} style={{ textAlign: 'left', padding: '6px 11px', fontSize: 12, color: T.textMuted, background: '#F8F7F4', border: `1px solid ${T.border}`, borderRadius: 9, cursor: 'pointer', fontFamily: 'inherit' }}>{q}</button>
+              )}
+            </div>
+            <div style={{ padding: '.75rem', borderTop: `1px solid ${T.borderLight}`, display: 'flex', gap: 8 }}>
+              <input style={{ ...C.inp, flex: 1, fontSize: 13 }} placeholder={t.askPlaceholder} value={chatInp} onChange={e => setCI(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendChat()} disabled={chatLoad} />
+              <button onClick={() => sendChat()} disabled={chatLoad || !chatInp.trim()} style={{ padding: '9px 13px', borderRadius: 9, background: T.accentBg, border: `1px solid ${T.accentBorder}`, cursor: 'pointer', display: 'flex', alignItems: 'center', opacity: (chatLoad || !chatInp.trim()) ? 0.45 : 1, transition: 'opacity .15s' }}><ISend /></button>
             </div>
           </div>
-          <div style={{ height: 460, overflowY: 'auto', padding: '.75rem', display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {chatMsgs.map((m, i) => (
-              <div key={i} style={{ display: 'flex', justifyContent: m.r === 'u' ? 'flex-end' : 'flex-start' }}>
-                <div style={{ maxWidth: '92%', padding: '9px 13px', borderRadius: m.r === 'u' ? '14px 14px 3px 14px' : '3px 14px 14px 14px', background: m.r === 'u' ? T.accentBg : '#F3F1EC', fontSize: 13, lineHeight: 1.65, color: m.r === 'u' ? T.accent : T.text, whiteSpace: 'pre-wrap', border: m.r === 'u' ? `1px solid ${T.accentBorder}` : `1px solid ${T.borderLight}` }}>{m.t}</div>
-              </div>
-            ))}
-            {chatLoad && <div style={{ display: 'flex', gap: 5, padding: '9px 13px', background: '#F3F1EC', borderRadius: '3px 14px 14px 14px', width: 'fit-content', border: `1px solid ${T.borderLight}` }}>{[0,1,2].map(i => <span key={i} style={{ display: 'inline-block', width: 7, height: 7, borderRadius: '50%', background: T.textSubtle, animation: `dp 1.4s ${i*.2}s infinite` }} />)}</div>}
-            <div ref={chatEndRef} />
-          </div>
-          <div style={{ padding: '0 .75rem .5rem', display: 'flex', flexDirection: 'column', gap: 5 }}>
-            {(lang === 'ru' ? ['Что важно для pre-seed?', 'Что такое трекшн?'] : ['What matters for pre-seed?', 'What is traction?']).map(q =>
-              <button key={q} onClick={() => sendChat(q)} style={{ textAlign: 'left', padding: '6px 11px', fontSize: 12, color: T.textMuted, background: '#F8F7F4', border: `1px solid ${T.border}`, borderRadius: 9, cursor: 'pointer', fontFamily: 'inherit' }}>{q}</button>
-            )}
-          </div>
-          <div style={{ padding: '.75rem', borderTop: `1px solid ${T.borderLight}`, display: 'flex', gap: 8 }}>
-            <input style={{ ...C.inp, flex: 1, fontSize: 13 }} placeholder={t.askPlaceholder} value={chatInp} onChange={e => setCI(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendChat()} disabled={chatLoad} />
-            <button onClick={() => sendChat()} disabled={chatLoad || !chatInp.trim()} style={{ padding: '9px 13px', borderRadius: 9, background: T.accentBg, border: `1px solid ${T.accentBorder}`, cursor: 'pointer', display: 'flex', alignItems: 'center', opacity: (chatLoad || !chatInp.trim()) ? 0.45 : 1, transition: 'opacity .15s' }}><ISend /></button>
-          </div>
         </div>
-      </div>
+      )}
+
+      {/* ── Mobile: floating chat button + bottom sheet ── */}
+      {isMobile && (
+        <>
+          {/* Floating button */}
+          <button
+            onClick={() => setChatOpen(true)}
+            style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000, width: 54, height: 54, borderRadius: '50%', background: T.accent, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(26,79,214,0.45)', transition: 'transform .15s' }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.08)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <IChat sz={22} col="#fff" />
+            {chatMsgs.filter(m => m.r === 'a').length > 1 && (
+              <div style={{ position: 'absolute', top: 2, right: 2, width: 16, height: 16, borderRadius: '50%', background: '#ef4444', border: '2px solid white', fontSize: 9, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>
+                {chatMsgs.filter(m => m.r === 'a').length - 1}
+              </div>
+            )}
+          </button>
+
+          {/* Bottom sheet overlay */}
+          {chatOpen && (
+            <div style={{ position: 'fixed', inset: 0, zIndex: 2000, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+              {/* Backdrop */}
+              <div style={{ position: 'absolute', inset: 0, background: 'rgba(26,23,20,0.5)', backdropFilter: 'blur(2px)' }} onClick={() => setChatOpen(false)} />
+              {/* Sheet */}
+              <div style={{ position: 'relative', background: T.surface, borderRadius: '20px 20px 0 0', maxHeight: '82vh', display: 'flex', flexDirection: 'column', boxShadow: '0 -8px 40px rgba(0,0,0,0.18)' }}>
+                {/* Handle + header */}
+                <div style={{ padding: '12px 16px 0', flexShrink: 0 }}>
+                  <div style={{ width: 40, height: 4, borderRadius: 2, background: T.border, margin: '0 auto 14px' }} />
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 12, borderBottom: `1px solid ${T.borderLight}` }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
+                      <div style={{ width: 30, height: 30, borderRadius: 9, background: T.accentBg, border: `1px solid ${T.accentBorder}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><IChat /></div>
+                      <div>
+                        <div style={{ fontSize: 14, fontWeight: 700, color: T.text }}>{t.assistantTitle}</div>
+                        <div style={{ fontSize: 11, color: T.textSubtle }}>{t.assistantSub}</div>
+                      </div>
+                    </div>
+                    <button onClick={() => setChatOpen(false)} style={{ background: '#F3F1EC', border: 'none', borderRadius: 8, padding: '6px 8px', cursor: 'pointer', fontSize: 13, color: T.textMuted, fontFamily: 'inherit', fontWeight: 600 }}>✕</button>
+                  </div>
+                </div>
+                {/* Messages */}
+                <div style={{ flex: 1, overflowY: 'auto', padding: '.75rem', display: 'flex', flexDirection: 'column', gap: 8, minHeight: 0 }}>
+                  {chatMsgs.map((m, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: m.r === 'u' ? 'flex-end' : 'flex-start' }}>
+                      <div style={{ maxWidth: '88%', padding: '9px 13px', borderRadius: m.r === 'u' ? '14px 14px 3px 14px' : '3px 14px 14px 14px', background: m.r === 'u' ? T.accentBg : '#F3F1EC', fontSize: 13, lineHeight: 1.65, color: m.r === 'u' ? T.accent : T.text, whiteSpace: 'pre-wrap', border: m.r === 'u' ? `1px solid ${T.accentBorder}` : `1px solid ${T.borderLight}` }}>{m.t}</div>
+                    </div>
+                  ))}
+                  {chatLoad && <div style={{ display: 'flex', gap: 5, padding: '9px 13px', background: '#F3F1EC', borderRadius: '3px 14px 14px 14px', width: 'fit-content' }}>{[0,1,2].map(i => <span key={i} style={{ display: 'inline-block', width: 7, height: 7, borderRadius: '50%', background: T.textSubtle, animation: `dp 1.4s ${i*.2}s infinite` }} />)}</div>}
+                  <div ref={chatEndRef} />
+                </div>
+                {/* Quick questions */}
+                <div style={{ padding: '0 .75rem .5rem', display: 'flex', gap: 6, flexWrap: 'wrap', flexShrink: 0 }}>
+                  {(lang === 'ru' ? ['Что важно для pre-seed?', 'Что такое трекшн?'] : ['What matters for pre-seed?', 'What is traction?']).map(q =>
+                    <button key={q} onClick={() => sendChat(q)} style={{ padding: '6px 11px', fontSize: 12, color: T.textMuted, background: '#F8F7F4', border: `1px solid ${T.border}`, borderRadius: 9, cursor: 'pointer', fontFamily: 'inherit' }}>{q}</button>
+                  )}
+                </div>
+                {/* Input */}
+                <div style={{ padding: '.75rem', borderTop: `1px solid ${T.borderLight}`, display: 'flex', gap: 8, flexShrink: 0, paddingBottom: 'max(.75rem, env(safe-area-inset-bottom))' }}>
+                  <input style={{ ...C.inp, flex: 1, fontSize: 14 }} placeholder={t.askPlaceholder} value={chatInp} onChange={e => setCI(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendChat()} disabled={chatLoad} />
+                  <button onClick={() => sendChat()} disabled={chatLoad || !chatInp.trim()} style={{ padding: '9px 13px', borderRadius: 9, background: T.accentBg, border: `1px solid ${T.accentBorder}`, cursor: 'pointer', display: 'flex', alignItems: 'center', opacity: (chatLoad || !chatInp.trim()) ? 0.45 : 1 }}><ISend /></button>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
       <style>{`@keyframes dp{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}`}</style>
     </div>
   );
