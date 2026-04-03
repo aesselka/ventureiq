@@ -412,7 +412,7 @@ function DocInfoCard({docId}){
 }
 
 // ── DropZone ───────────────────────────────────────────────────────────────
-function DropZone({label,value,fileObj,docId,onUpload,onPreview,lang='ru'}){
+function DropZone({label,value,fileObj,docId,onUpload,onPreview,lang='ru',onAskAI}){
   const [drag,setDrag]=useState(false);
   const [showInfo,setShowInfo]=useState(false);
   const t=LANGS[lang];
@@ -421,6 +421,14 @@ function DropZone({label,value,fileObj,docId,onUpload,onPreview,lang='ru'}){
     const f=e.dataTransfer.files?.[0];
     if(f)onUpload(docId,f.name,f);
   },[docId,onUpload]);
+  const handleAskAI=()=>{
+    if(typeof onAskAI==='function'){
+      const msg=lang==='ru'
+        ?`Объясни поле «${label}»: что туда загружать, как подготовить и зачем это нужно инвестору?`
+        :`Explain the "${label}" field: what to upload, how to prepare it, and why does the investor need it?`;
+      onAskAI(label,msg);
+    }
+  };
   return(
     <div>
       <div onDragOver={e=>{e.preventDefault();setDrag(true);}} onDragLeave={()=>setDrag(false)} onDrop={onDrop}
@@ -442,9 +450,13 @@ function DropZone({label,value,fileObj,docId,onUpload,onPreview,lang='ru'}){
           </label>
         )}
       </div>
-      <div style={{display:'flex',justifyContent:'flex-end',marginTop:4}}>
+      <div style={{display:'flex',justifyContent:'flex-end',marginTop:4,gap:8}}>
         <button onClick={()=>setShowInfo(!showInfo)} style={{background:'none',border:'none',cursor:'pointer',display:'flex',alignItems:'center',gap:3,fontSize:11,color:showInfo?T.accent:T.textSubtle,fontFamily:'inherit'}}>
-          <IInfo sz={11} col={showInfo?T.accent:T.textSubtle}/>{showInfo?(lang==='ru'?'Скрыть':'Hide'):(lang==='ru'?'Подробнее':'Details')}{showInfo?<IUp sz={10}/>:<IDown sz={10}/>}
+          {showInfo?(lang==='ru'?'Скрыть':'Hide'):(lang==='ru'?'Подробнее':'Details')}{showInfo?<IUp sz={10}/>:<IDown sz={10}/>}
+        </button>
+        <button onClick={handleAskAI} title={lang==='ru'?`Спросить ИИ про «${label}»`:`Ask AI about "${label}"`}
+          style={{width:20,height:20,borderRadius:'50%',border:`1.5px solid ${T.accentBorder}`,background:T.accentBg,cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',padding:0,flexShrink:0}}>
+          <span style={{fontSize:11,fontWeight:700,color:T.accent,lineHeight:1}}>i</span>
         </button>
       </div>
       {showInfo&&<DocInfoCard docId={docId}/>}
@@ -453,12 +465,20 @@ function DropZone({label,value,fileObj,docId,onUpload,onPreview,lang='ru'}){
 }
 
 // ── SlotRow ────────────────────────────────────────────────────────────────
-function SlotRow({slot,value,fileObj,optional,onUpload,sub=false,firstRound,onFirstRound,onPreview,lang='ru'}){
-  const [showInfo,setShowInfo]=useState(false);
+// ⓘ opens chat directly with instant field explanation
+function SlotRow({slot,value,fileObj,optional,onUpload,sub=false,firstRound,onFirstRound,onPreview,lang='ru',onAskAI}){
   const t=LANGS[lang];
   const filled=Boolean(value)||firstRound;
   const label=lang==='ru'?slot.labelRu:slot.labelEn;
   const hint=lang==='ru'?slot.hint:(slot.hintEn||slot.hint);
+  const handleInfoClick=()=>{
+    if(typeof onAskAI==='function'){
+      const msg=lang==='ru'
+        ?`Объясни поле «${label}»: что туда загружать, как подготовить и зачем это нужно инвестору?`
+        :`Explain the "${label}" field: what to upload, how to prepare it, and why does the investor need it?`;
+      onAskAI(label,msg);
+    }
+  };
   return(
     <div style={{borderTop:`1px solid ${T.borderLight}`,paddingLeft:sub?16:0}}>
       <div style={{display:'flex',alignItems:'center',gap:8,padding:'8px 0'}}>
@@ -475,7 +495,13 @@ function SlotRow({slot,value,fileObj,optional,onUpload,sub=false,firstRound,onFi
           {firstRound&&<div style={{fontSize:11,color:T.textMuted,marginTop:1}}>{lang==='ru'?'Первый раунд':'First round'}</div>}
         </div>
         <div style={{display:'flex',alignItems:'center',gap:5,flexShrink:0}}>
-          <button onClick={()=>setShowInfo(!showInfo)} style={{background:'none',border:'none',cursor:'pointer',padding:3,display:'flex',borderRadius:6}} title="ⓘ"><IInfo sz={13} col={showInfo?T.accent:T.textSubtle}/></button>
+          <button
+            onClick={handleInfoClick}
+            title={lang==='ru'?`Спросить ИИ про «${label}»`:`Ask AI about "${label}"`}
+            style={{width:22,height:22,borderRadius:'50%',border:`1.5px solid ${T.accentBorder}`,background:T.accentBg,cursor:'pointer',padding:0,display:'flex',alignItems:'center',justifyContent:'center',transition:'all .15s',flexShrink:0}}
+          >
+            <span style={{fontSize:12,fontWeight:700,color:T.accent,lineHeight:1}}>i</span>
+          </button>
           {value&&fileObj&&<button onClick={()=>onPreview(fileObj)} style={{background:'none',border:'none',cursor:'pointer',padding:3,display:'flex',borderRadius:6}}><IEye sz={13}/></button>}
           {slot.id==='rounds'&&!value&&(
             <button onClick={onFirstRound} style={{fontSize:11,color:T.textMuted,padding:'3px 8px',border:`1px solid ${T.border}`,borderRadius:7,cursor:'pointer',background:firstRound?T.greenBg:'white',fontFamily:'inherit',whiteSpace:'nowrap',fontWeight:firstRound?600:400}}>
@@ -488,7 +514,6 @@ function SlotRow({slot,value,fileObj,optional,onUpload,sub=false,firstRound,onFi
           </label>
         </div>
       </div>
-      {showInfo&&<div style={{paddingBottom:6}}><DocInfoCard docId={slot.id}/><div style={{fontSize:12,color:T.textMuted,lineHeight:1.6,marginTop:6,padding:'8px 12px',background:'#F8F7F4',borderRadius:8}}>{hint}</div></div>}
     </div>
   );
 }
@@ -746,7 +771,9 @@ function Form({go}){
   const credFilled=Boolean(credUrl&&credLogin&&credPass);
   const [previewFile,setPreviewFile]=useState(null);
 
-  const [chatMsgs,setCM]=useState([{r:'a',t:"Привет! Помогаю заполнить заявку.\n\nДемо предзаполнено данными FastRoute (стадия Seed). Нажмите ⓘ рядом с любым документом — раскроется 4-колоночная карточка: что загрузить, как подготовить, зачем инвестору."}]);
+  const GREETING_RU="Привет! Я здесь, чтобы помочь вам заполнить заявку. Заполняйте форму слева — если будут вопросы, просто спросите. Рядом с каждым полем есть иконка ⓘ — нажмите её, и я сразу объясню, что нужно указать и почему это важно. Начнём?";
+  const GREETING_EN="Hi! I'm here to help you complete your application. Fill in the form on the left — if you have questions, just ask. Each field has an ⓘ icon — click it and I'll explain what to fill in and why it matters. Let's start?";
+  const [chatMsgs,setCM]=useState([{r:'a',t:GREETING_RU}]);
   const [chatInp,setCI]=useState('');
   const [chatLoad,setCL]=useState(false);
   const [chatOpen,setChatOpen]=useState(false);
@@ -755,6 +782,12 @@ function Form({go}){
   const [faaScore,setFAAScore]=useState(null);
   const chatEndRef=useRef(null);
   useEffect(()=>{chatEndRef.current?.scrollIntoView({behavior:'smooth'});},[chatMsgs,chatLoad,showFAA]);
+
+  // Update greeting when language switches
+  useEffect(()=>{
+    const greeting=lang==='ru'?GREETING_RU:GREETING_EN;
+    setCM(p=>[{r:'a',t:greeting},...p.slice(1)]);
+  },[lang]);
 
   const stage=frm.stage;
   const isSeed=stage==='seed';
@@ -779,12 +812,41 @@ function Form({go}){
 
   useEffect(()=>{setDM(checkDescVsActivity(frm.desc,frm.activity,lang));},[frm.desc,frm.activity,lang]);
 
-  const sendChat=text=>{
+  const chatHistoryRef = useRef([]);
+
+  const sendChat=async(text)=>{
     const q=text||chatInp.trim();if(!q||chatLoad)return;
-    setCI('');setCL(true);setCM(p=>[...p,{r:'u',t:q}]);
-    const l=q.toLowerCase();
-    const k=Object.keys(ASSIST).find(k=>k!=='default'&&l.includes(k));
-    setTimeout(()=>{setCM(p=>[...p,{r:'a',t:ASSIST[k||'default']}]);setCL(false);},650);
+    setCI('');setCL(true);
+    const userMsg={r:'u',t:q};
+    setCM(p=>[...p,userMsg]);
+
+    // Build history for API (last 8 exchanges, skip greeting)
+    const history=chatHistoryRef.current.slice(-8).map(m=>({role:m.r==='u'?'user':'assistant',content:m.t}));
+    const formContext={stage:frm.stage,activity:frm.activity,company:frm.company,lang,
+      uploadedDocs:Object.entries(uploads).filter(([_,v])=>v).map(([k])=>k)};
+
+    try{
+      const res=await fetch('/api/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:q,context:formContext,history}),
+      });
+      const data=await res.json();
+      if(!res.ok)throw new Error(data.error||'Server error');
+      const reply={r:'a',t:data.reply};
+      setCM(p=>[...p,reply]);
+      chatHistoryRef.current=[...chatHistoryRef.current,{r:'u',t:q},reply];
+    }catch(err){
+      console.error(err);
+      setCM(p=>[...p,{r:'a',t:lang==='ru'?'Не удалось получить ответ. Попробуйте ещё раз.':'Couldnt get a response. Please try again.'}]);
+    }finally{setCL(false);}
+  };
+
+  const askAI=(label,msgOverride)=>{
+    // msgOverride is the full opening question sent by SlotRow ⓘ button
+    const q=msgOverride||(lang==='ru'?`Расскажи про «${label}»`:`Tell me about "${label}"`);
+    sendChat(q);
+    setChatOpen(true); // open chat panel (mobile + desktop)
   };
 
   const setUpload=(id,name,fileObj)=>{
@@ -995,7 +1057,7 @@ function Form({go}){
             {/* Pitch Deck — DropZone */}
             <div style={{borderTop:`1px solid ${T.redBorder}20`,paddingTop:10,marginBottom:8}}>
               <div style={{fontSize:12,fontWeight:600,color:T.text,marginBottom:6}}>Pitch Deck</div>
-              <DropZone label="Pitch Deck" value={uploads.pitch} fileObj={fileObjs.pitch} docId="pitch" onUpload={setUpload} onPreview={setPreviewFile} lang={lang}/>
+              <DropZone label="Pitch Deck" value={uploads.pitch} fileObj={fileObjs.pitch} docId="pitch" onUpload={setUpload} onPreview={setPreviewFile} lang={lang} onAskAI={askAI}/>
             </div>
 
             {/* Subdocuments */}
@@ -1004,7 +1066,7 @@ function Form({go}){
               {SUBDOCS.map(slot=>{
                 const opt=isOptional(slot),req=isRequired(slot);
                 if(!req&&!opt)return null;
-                return <SlotRow key={slot.id} slot={slot} value={uploads[slot.id]} fileObj={fileObjs[slot.id]} optional={opt} onUpload={setUpload} onPreview={setPreviewFile} sub={true} lang={lang}/>;
+                return <SlotRow key={slot.id} slot={slot} value={uploads[slot.id]} fileObj={fileObjs[slot.id]} optional={opt} onUpload={setUpload} onPreview={setPreviewFile} sub={true} lang={lang} onAskAI={askAI}/>;
               })}
             </div>
 
@@ -1014,7 +1076,7 @@ function Form({go}){
                 <span style={{fontSize:12,fontWeight:600,color:T.text}}>{lang==='ru'?'Финансовая модель':'Financial Model'}</span>
                 <span style={{fontSize:10,padding:'1px 6px',borderRadius:4,background:T.redBg,color:T.red}}>Excel</span>
               </div>
-              <DropZone label={lang==='ru'?'Финансовая модель (.xlsx)':'Financial Model (.xlsx)'} value={finUpload} fileObj={finFileObj} docId="fin" onUpload={(_,name,f)=>{setFin(name);if(f)setFinFileObj({name,size:f.size,url:URL.createObjectURL(f)});}} onPreview={setPreviewFile} lang={lang}/>
+              <DropZone label={lang==='ru'?'Финансовая модель (.xlsx)':'Financial Model (.xlsx)'} value={finUpload} fileObj={finFileObj} docId="fin" onUpload={(_,name,f)=>{setFin(name);if(f)setFinFileObj({name,size:f.size,url:URL.createObjectURL(f)});}} onPreview={setPreviewFile} lang={lang} onAskAI={askAI}/>
             </div>
           </div>
 
@@ -1051,7 +1113,7 @@ function Form({go}){
                   <span style={{fontSize:12,fontWeight:600,color:T.accent}}>{lang==='ru'?'Видео-демонстрация':'Video Walkthrough'}</span>
                   <span style={{fontSize:10,padding:'1px 6px',borderRadius:4,background:'#F3F1EC',color:T.textSubtle}}>5–15 мин</span>
                 </div>
-                <DropZone label={lang==='ru'?'Видео (mp4, mov, loom...)':'Video (mp4, mov, loom...)'} value={videoUpload} fileObj={videoFileObj} docId="video" onUpload={(_,name,f)=>{setVideo(name);if(f)setVideoFileObj({name,size:f.size,url:URL.createObjectURL(f)});}} onPreview={setPreviewFile} lang={lang}/>
+                <DropZone label={lang==='ru'?'Видео (mp4, mov, loom...)':'Video (mp4, mov, loom...)'} value={videoUpload} fileObj={videoFileObj} docId="video" onUpload={(_,name,f)=>{setVideo(name);if(f)setVideoFileObj({name,size:f.size,url:URL.createObjectURL(f)});}} onPreview={setPreviewFile} lang={lang} onAskAI={askAI}/>
               </div>
             </div>
 
@@ -1067,7 +1129,7 @@ function Form({go}){
 
             {/* Previous rounds */}
             <SlotRow slot={{id:'rounds',labelRu:'Документы предыдущих раундов',labelEn:'Previous Round Documents',hint:'Term sheet, SAFE, конвертируемые займы. Первый раунд — нажмите кнопку.',hintEn:'Term sheet, SAFE, convertible notes. First round — click button.'}}
-              value={uploads.rounds} fileObj={fileObjs.rounds} optional={true} onUpload={setUpload} onPreview={setPreviewFile} firstRound={firstRound} onFirstRound={()=>setFR(v=>!v)} lang={lang}/>
+              value={uploads.rounds} fileObj={fileObjs.rounds} optional={true} onUpload={setUpload} onPreview={setPreviewFile} firstRound={firstRound} onFirstRound={()=>setFR(v=>!v)} lang={lang} onAskAI={askAI}/>
           </div>
 
           {/* Cat 3 — Legal */}
@@ -1077,7 +1139,7 @@ function Form({go}){
               <span style={{fontSize:12,color:T.textMuted,fontWeight:500}}>{t.cat3note}</span>
             </div>
             {CAT3_DOCS.map(slot=>(
-              <SlotRow key={slot.id} slot={slot} value={uploads[slot.id]} fileObj={fileObjs[slot.id]} optional={true} onUpload={setUpload} onPreview={setPreviewFile} lang={lang}/>
+              <SlotRow key={slot.id} slot={slot} value={uploads[slot.id]} fileObj={fileObjs[slot.id]} optional={true} onUpload={setUpload} onPreview={setPreviewFile} lang={lang} onAskAI={askAI}/>
             ))}
           </div>
 
