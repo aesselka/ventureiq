@@ -130,7 +130,7 @@ app.post("/api/chat", async (req, res) => {
       {
         role: "user",
         content: context
-          ? `[Контекст формы]\n${JSON.stringify(context, null, 2)}\n\n[Вопрос фаундера]\n${message}`
+          ? `[Контекст формы]\n${JSON.stringify(context, null, 2)}\n\n[Язык интерфейса: ${context.lang === 'en' ? 'English — отвечай на английском' : 'Русский — отвечай на русском'}]\n\n[Вопрос фаундера]\n${message}`
           : message,
       },
     ];

@@ -86,7 +86,7 @@ export default async function handler(req, res) {
       {
         role: "user",
         content: context
-          ? `[Текущее состояние формы]\n${JSON.stringify(context, null, 2)}\n\n[Вопрос фаундера]\n${message}`
+          ? `[Текущее состояние формы]\n${JSON.stringify(context, null, 2)}\n\n[Язык интерфейса: ${context.lang === 'en' ? 'English — отвечай на английском' : 'Русский — отвечай на русском'}]\n\n[Вопрос фаундера]\n${message}`
           : message,
       },
     ];
