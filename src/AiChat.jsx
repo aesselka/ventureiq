@@ -19,7 +19,7 @@ const WELCOME_EN =
 export default function AiChat({
   lang = "ru",
   context = null,
-  apiUrl = "http://localhost:3001/api/chat",
+  apiUrl = "/api/chat",
 }) {
   const welcome = lang === "en" ? WELCOME_EN : WELCOME_RU;
 
