@@ -9,21 +9,18 @@ const ISend   = ({sz=16,col="#fff"})=><svg width={sz} height={sz} viewBox="0 0 2
 const IArrow  = ({sz=14,col="#1d4ed8"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
 const IUpload = ({sz=22,col="#9ca3af"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="1.5"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>;
 const IUser   = ({sz=16,col="#6b7280"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
-const IChat   = ({sz=20,col="#fff"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>;
 const IX      = ({sz=14,col="#9ca3af"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
 const IGlobe  = ({sz=13,col="#9ca3af"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>;
 const IPlus   = ({sz=13,col="#1d4ed8"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>;
-const IZap    = ({sz=16,col="#fff"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>;
-const ISave   = ({sz=13,col="#16a34a"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>;
 const IVideo  = ({sz=14,col="#7c3aed"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>;
 const IShield = ({sz=14,col="#059669"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>;
 const IKey    = ({sz=14,col="#d97706"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>;
-const IChevD  = ({sz=12})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>;
-const IChevU  = ({sz=12})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="18 15 12 9 6 15"/></svg>;
+const IChevD  = ({sz=16,col="currentColor"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>;
 const IRocket = ({sz=18,col="#fff"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill="none" stroke={col} strokeWidth="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg>;
+const IStar   = ({sz=18,col="#fff"})=><svg width={sz} height={sz} viewBox="0 0 24 24" fill={col} stroke={col} strokeWidth="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>;
 
 const T={
-  bg:'#FFFFFF',surface:'#FFFFFF',surfaceAlt:'#F5F5F7',
+  bg:'#EFF3F8',surface:'#FFFFFF',surfaceAlt:'#F5F5F7',
   border:'#E4E0D8',borderLight:'#EDE9E2',
   text:'#1A1714',textMuted:'#6B6560',textSubtle:'#9B9590',
   accent:'#1d6bfc',accentHover:'#1558e0',accentBg:'#EEF4FF',accentBorder:'#C5D9FF',
@@ -35,19 +32,22 @@ const T={
 
 const L={
   ru:{
-    title:'Заявка на рассмотрение',back:'← Назад',
-    restored:'Черновик восстановлен',restoredSub:'Данные восстановлены из автосохранения',dismiss:'Закрыть',
-    progress:'Заполнено',of:'из',fields:'полей',
-    basicInfo:'Базовая информация',docUpload:'Загрузка документов',
+    title:'Заявка на получение инвестиций',back:'← Назад',
+    companySection:'Информация о компании',
+    companySub:'Название, вид деятельности, запрашиваемые инвестиции',
+    founderSection:'Заявитель (фаундер или один из фаундеров)',
+    founderSub:'Информация о команде основателей',
+    docSection:'Data room (Документы)',
+    docSub:'Документы для due diligence',
     mandatory:'ОБЯЗАТЕЛЬНЫЕ',replace:'Заменить',upload:'Загрузить',
     founder:'Фаундер',name:'ФИО',country:'Страна',role:'Роль',
     linkType:'Тип ссылки',linkUrl:'Ссылка / профиль',addLink:'+ Добавить ссылку',
-    details:'Подробнее',aiAssistant:'ИИ-ассистент',aiPlaceholder:'Напишите вопрос...',
+    details:'Подробнее',aiAssistant:'ИИ-ассистент фаундера',aiPlaceholder:'Напишите вопрос...',
     suggestQ1:'Что важно для pre-seed?',suggestQ2:'Как загрузить Demo?',
     siteCheck:'Gate Check пройден — все критерии',optional:'если есть',
     company:'Название компании',activity:'Вид деятельности',stage:'Стадия проекта',
     email:'Email',invest:'Запрашиваемые инвестиции',desc:'Описание проекта',
-    site:'Сайт',currency:'Валюта',chooseActivity:'Выберите вид деятельности',
+    site:'Сайт',chooseActivity:'Выберите вид деятельности',
     pitchDeck:'Pitch Deck',subdocLabel:'СУБДОКУМЕНТЫ К PITCH DECK',
     productDemo:'PRODUCT DEMO',productDemoSub:'Чем больше доступа — тем точнее оценка CPO+CTO',
     accessLabel:'Доступ к продукту',accessSub:'Ожидается для Seed',
@@ -55,18 +55,21 @@ const L={
     publicLink:'Ссылка на публичный продукт',publicLinkSub:'без регистрации',
     legalPack:'ЮРИДИЧЕСКИЙ ПАКЕТ',legalPackSub:'Условие закрытия сделки',
     finModel:'Финансовая модель',
-    submitBtn:'Отправить заявку на анализ',submitSub:'Анализ 5–15 минут · Email придёт на почту',
-    switchToB:'Перейти к документам →',switchToA:'← К базовой информации',
-    panelActive:'Активен',panelSwitch:'Нажмите для перехода',
+    submitBtn:'Отправить на рассмотрение',submitSub:'Анализ 5–15 минут · Email придёт на почту',
     whatIs:'ЧТО ЭТО?',how:'КАК ПОДГОТОВИТЬ?',why:'ЗАЧЕМ ИНВЕСТОРУ?',
-    aiSub:'Нажмите ⓘ у любого документа',
+    aiSub:'Помогу заполнить заявку и отвечу на вопросы',
     firstRound:'1-й раунд',firstRoundDone:'✓ 1-й раунд',
+    draftSaved:'Черновик автосохранён ✓',
+    draftHint:'Почти готово! Загрузите документы в Data Room',
   },
   en:{
-    title:'Application for Review',back:'← Back',
-    restored:'Draft Restored',restoredSub:'Data restored from autosave',dismiss:'Close',
-    progress:'Filled',of:'of',fields:'fields',
-    basicInfo:'Basic Information',docUpload:'Document Upload',
+    title:'Investment Application',back:'← Back',
+    companySection:'Company Information',
+    companySub:'Name, activity, requested investment',
+    founderSection:'Applicant (founder or one of the founders)',
+    founderSub:'Information about the founding team',
+    docSection:'Data room (Documents)',
+    docSub:'Documents for due diligence',
     mandatory:'REQUIRED',replace:'Replace',upload:'Upload',
     founder:'Founder',name:'Full Name',country:'Country',role:'Role',
     linkType:'Link type',linkUrl:'Link / profile',addLink:'+ Add link',
@@ -75,7 +78,7 @@ const L={
     siteCheck:'Gate Check passed — all criteria met',optional:'if available',
     company:'Company Name',activity:'Business Activity',stage:'Project Stage',
     email:'Email',invest:'Requested Investment',desc:'Project Description',
-    site:'Website',currency:'Currency',chooseActivity:'Choose activity',
+    site:'Website',chooseActivity:'Choose activity',
     pitchDeck:'Pitch Deck',subdocLabel:'SUBDOCUMENTS TO PITCH DECK',
     productDemo:'PRODUCT DEMO',productDemoSub:'More access = more accurate CPO+CTO evaluation',
     accessLabel:'Product Access',accessSub:'Expected for Seed',
@@ -83,12 +86,12 @@ const L={
     publicLink:'Public product link',publicLinkSub:'no registration',
     legalPack:'LEGAL PACKAGE',legalPackSub:'Required before closing',
     finModel:'Financial Model',
-    submitBtn:'Submit for Analysis',submitSub:'Analysis 5–15 min · Results sent by email',
-    switchToB:'Go to documents →',switchToA:'← Back to basic info',
-    panelActive:'Active',panelSwitch:'Click to switch',
+    submitBtn:'Submit for Review',submitSub:'Analysis 5–15 min · Results sent by email',
     whatIs:'WHAT IS IT?',how:'HOW TO PREPARE?',why:'WHY FOR INVESTOR?',
-    aiSub:'Click ⓘ next to any document',
+    aiSub:'I\'ll help you fill the form and answer questions',
     firstRound:'1st round',firstRoundDone:'✓ 1st round',
+    draftSaved:'Draft auto-saved ✓',
+    draftHint:'Almost done! Upload documents to Data Room',
   },
 };
 
@@ -103,7 +106,6 @@ const STAGES_RU=['Seed — MVP + первые клиенты','Pre-seed — ид
 const STAGES_EN=['Seed — MVP + first clients','Pre-seed — idea / prototype'];
 const ACTS_RU=['SaaS / B2B-платформа','Маркетплейс','Мобильное приложение','Fintech / Payments','Edtech','Logistics Tech / Supply Chain','HR Tech / Recruitment','Legal Tech','E-commerce / Retail Tech','PropTech','Agritech','Mediatech / Content','Analytics / BI','Dev Tools / API','Cybersecurity (без R&D)'];
 const ACTS_EN=['SaaS / B2B Platform','Marketplace','Mobile App','Fintech / Payments','Edtech','Logistics Tech / Supply Chain','HR Tech / Recruitment','Legal Tech','E-commerce / Retail Tech','PropTech','Agritech','Mediatech / Content','Analytics / BI','Dev Tools / API','Cybersecurity (no R&D)'];
-const CURR=['USD','EUR','KZT','RUB'];
 
 const SD={
   mkt:{id:'mkt',labelRu:'Market Sizing (TAM/SAM/SOM)',labelEn:'Market Sizing (TAM/SAM/SOM)',seed:'required',preseed:'required',
@@ -186,6 +188,82 @@ function gateCheck(co,fnd,lang){
 const inp={width:'100%',boxSizing:'border-box',padding:'9px 12px',border:`1.5px solid ${T.border}`,borderRadius:10,background:'#fff',fontSize:13,color:T.text,fontFamily:'inherit',outline:'none',transition:'border-color .15s'};
 const lbl={fontSize:11,color:T.textSubtle,fontWeight:600,textTransform:'uppercase',letterSpacing:'.06em',marginBottom:5,display:'block'};
 
+// ─── Accordion Section ────────────────────────────────────────────────────────
+
+function AccordionSection({title,subtitle,open,onToggle,children,accentColor}){
+  const ac=accentColor||T.accent;
+  const acBg=accentColor?`${accentColor}12`:T.accentBg;
+  const acBorder=accentColor?`${accentColor}55`:T.accentBorder;
+  return(
+    <div style={{background:'#fff',borderRadius:16,border:`1.5px solid ${open?acBorder:'#E2E6EC'}`,marginBottom:12,overflow:'hidden',transition:'border-color .25s,box-shadow .25s',boxShadow:open?`0 4px 20px ${ac}18`:'0 1px 4px rgba(0,0,0,.05)'}}>
+      <button onClick={onToggle} style={{width:'100%',background:open?acBg:'#fff',border:'none',borderBottom:open?`1px solid ${acBorder}`:'none',padding:'17px 22px',display:'flex',alignItems:'center',gap:14,cursor:'pointer',fontFamily:'inherit',transition:'background .2s',textAlign:'left'}}
+        onMouseOver={e=>{if(!open)e.currentTarget.style.background='#F7F9FC';}}
+        onMouseOut={e=>{if(!open)e.currentTarget.style.background='#fff';}}>
+        <div style={{flex:1}}>
+          <div style={{fontSize:15,fontWeight:700,color:T.text}}>{title}</div>
+          {subtitle&&<div style={{fontSize:12,color:T.textSubtle,marginTop:3}}>{subtitle}</div>}
+        </div>
+        <div style={{transform:open?'rotate(180deg)':'rotate(0deg)',transition:'transform .25s',color:open?ac:T.textSubtle,flexShrink:0}}>
+          <IChevD sz={20} col={open?ac:T.textSubtle}/>
+        </div>
+      </button>
+      {open&&<div style={{padding:'18px 22px'}}>{children}</div>}
+    </div>
+  );
+}
+
+// ─── Sub Accordion (inside Data Room) ─────────────────────────────────────────
+
+function SubAccordion({title,subtitle,open,onToggle,children,color,noToggle}){
+  return(
+    <div style={{border:`1.5px solid ${color}44`,borderRadius:14,overflow:'hidden',marginBottom:14}}>
+      <div onClick={noToggle?undefined:onToggle} style={{padding:'12px 18px',background:`${color}0d`,borderBottom:open?`1px solid ${color}33`:'none',display:'flex',alignItems:'center',justifyContent:'space-between',cursor:noToggle?'default':'pointer'}}>
+        <div>
+          <div style={{fontSize:12,fontWeight:700,color,letterSpacing:'.1em',marginBottom:subtitle?2:0}}>{title}</div>
+          {subtitle&&<div style={{fontSize:11,color:T.textSubtle}}>{subtitle}</div>}
+        </div>
+        {!noToggle&&<div style={{transform:open?'rotate(180deg)':'rotate(0deg)',transition:'transform .22s',color,flexShrink:0}}>
+          <IChevD sz={16} col={color}/>
+        </div>}
+      </div>
+      {open&&<div style={{padding:'14px 16px'}}>{children}</div>}
+    </div>
+  );
+}
+
+// ─── Toast ────────────────────────────────────────────────────────────────────
+
+function ToastContainer({toasts,onDismiss}){
+  return(
+    <div style={{position:'fixed',top:80,right:24,zIndex:9999,display:'flex',flexDirection:'column',gap:10,pointerEvents:'none'}}>
+      {toasts.map(toast=>(
+        <div key={toast.id} onClick={()=>onDismiss(toast.id)} style={{
+          background:'#fff',
+          border:`1.5px solid ${toast.type==='success'?T.greenBorder:T.accentBorder}`,
+          borderLeft:`4px solid ${toast.type==='success'?T.green:T.accent}`,
+          borderRadius:12,padding:'13px 16px',
+          display:'flex',alignItems:'center',gap:10,
+          boxShadow:'0 8px 28px rgba(0,0,0,.13)',
+          pointerEvents:'auto',cursor:'pointer',
+          minWidth:280,maxWidth:360,
+          animation:'slideInToast .35s cubic-bezier(.22,.68,0,1.2)',
+        }}>
+          <div style={{width:28,height:28,borderRadius:8,background:toast.type==='success'?T.greenBg:T.accentBg,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+            {toast.type==='success'
+              ?<ICheck sz={14} col={T.green}/>
+              :<div style={{fontSize:12,fontWeight:800,color:T.accent}}>!</div>}
+          </div>
+          <span style={{fontSize:13,color:T.text,flex:1,lineHeight:1.4}}>{toast.msg}</span>
+          <IX sz={12} col={T.textSubtle}/>
+        </div>
+      ))}
+      <style>{`@keyframes slideInToast{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}`}</style>
+    </div>
+  );
+}
+
+// ─── DocInfo ──────────────────────────────────────────────────────────────────
+
 function DocInfo({doc,lang,t,onAsk}){
   const [open,setOpen]=useState(false);
   if(!doc)return null;
@@ -196,7 +274,7 @@ function DocInfo({doc,lang,t,onAsk}){
       <div style={{display:'flex',alignItems:'center',gap:6,marginTop:4}}>
         <button onClick={()=>setOpen(v=>!v)} style={{display:'flex',alignItems:'center',gap:4,background:'none',border:'none',cursor:'pointer',fontSize:11,color:T.textSubtle,fontFamily:'inherit',padding:'3px 0',transition:'color .15s'}}
           onMouseOver={e=>e.currentTarget.style.color=T.textMuted} onMouseOut={e=>e.currentTarget.style.color=T.textSubtle}>
-          {t.details} {open?<IChevU sz={11}/>:<IChevD sz={11}/>}
+          {t.details} <div style={{transform:open?'rotate(180deg)':'none',transition:'transform .2s',display:'inline-flex'}}><IChevD sz={10} col={T.textSubtle}/></div>
         </button>
         {onAsk&&<button onClick={()=>onAsk(q)} title={lang==='ru'?'Спросить ИИ':'Ask AI'}
           style={{width:20,height:20,borderRadius:'50%',border:`1.5px solid ${T.accentBorder}`,background:T.accentBg,cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',fontSize:10,fontWeight:700,color:T.accent,padding:0,flexShrink:0,transition:'all .15s'}}
@@ -223,6 +301,8 @@ function DocInfo({doc,lang,t,onAsk}){
     </div>
   );
 }
+
+// ─── SlotRow ──────────────────────────────────────────────────────────────────
 
 function SlotRow({id,doc,val,status,onUp,lang,t,onAsk,firstRound,onFR}){
   const label=lang==='ru'?doc.labelRu:doc.labelEn;
@@ -262,6 +342,8 @@ function SlotRow({id,doc,val,status,onUp,lang,t,onAsk,firstRound,onFR}){
   );
 }
 
+// ─── DropZone ─────────────────────────────────────────────────────────────────
+
 function DropZone({id,doc,val,onUp,lang,t,onAsk}){
   const [drag,setDrag]=useState(false);
   const label=lang==='ru'?doc.labelRu:doc.labelEn;
@@ -290,6 +372,8 @@ function DropZone({id,doc,val,onUp,lang,t,onAsk}){
     </div>
   );
 }
+
+// ─── FounderBlock ─────────────────────────────────────────────────────────────
 
 function FounderBlock({founder,index,lang,onChange,onRemove}){
   const t=L[lang];
@@ -347,6 +431,8 @@ function FounderBlock({founder,index,lang,onChange,onRemove}){
   );
 }
 
+// ─── CompanyBlock (без валюты) ────────────────────────────────────────────────
+
 function CompanyBlock({data,lang,onChange,founders}){
   const t=L[lang];
   const acts=lang==='ru'?ACTS_RU:ACTS_EN;
@@ -355,7 +441,7 @@ function CompanyBlock({data,lang,onChange,founders}){
   const hasBlock=issues.some(i=>i.type==='block');
   const ok=data.company&&data.company.trim().length>1&&data.activity&&!hasBlock&&issues.length===0;
   return(
-    <div style={{background:T.surface,borderRadius:16,padding:18,border:`1px solid ${T.border}`}}>
+    <div style={{background:T.surface,borderRadius:14,padding:18,border:`1px solid ${T.border}`}}>
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,marginBottom:12}}>
         <div><label style={lbl}>{t.company} *</label><input style={inp} value={data.company||''} onChange={e=>onChange({company:e.target.value})} placeholder="FastRoute"/></div>
         <div><label style={lbl}>{t.activity} *</label>
@@ -376,14 +462,9 @@ function CompanyBlock({data,lang,onChange,founders}){
       <div style={{marginBottom:12}}><label style={lbl}>{t.desc}</label>
         <textarea style={{...inp,height:72,resize:'vertical',lineHeight:1.5}} value={data.desc||''} onChange={e=>onChange({desc:e.target.value})} placeholder={lang==='ru'?'Кратко опишите проект...':'Briefly describe the project...'}/>
       </div>
-      <div style={{display:'grid',gridTemplateColumns:'1fr 130px 85px',gap:10,marginBottom:14,alignItems:'end'}}>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10,marginBottom:14,alignItems:'end'}}>
         <div><label style={lbl}>{t.site}</label><input style={inp} value={data.site||''} onChange={e=>onChange({site:e.target.value})} placeholder="fastroute.kz"/></div>
-        <div><label style={lbl}>{t.invest}</label><input style={inp} value={data.invest||''} onChange={e=>onChange({invest:e.target.value})} placeholder="500 000"/></div>
-        <div><label style={lbl}>{t.currency}</label>
-          <select style={inp} value={data.currency||'USD'} onChange={e=>onChange({currency:e.target.value})}>
-            {CURR.map(c=><option key={c}>{c}</option>)}
-          </select>
-        </div>
+        <div><label style={lbl}>{t.invest} (USD) *</label><input style={inp} value={data.invest||''} onChange={e=>onChange({invest:e.target.value})} placeholder="500 000"/></div>
       </div>
       {ok&&<div style={{display:'flex',alignItems:'center',gap:6,fontSize:12,color:T.green,background:T.greenBg,border:`1px solid ${T.greenBorder}`,borderRadius:9,padding:'9px 13px'}}><ICheck sz={13}/><strong>{t.siteCheck}</strong></div>}
       {issues.map((iss,i)=>(
@@ -396,19 +477,22 @@ function CompanyBlock({data,lang,onChange,founders}){
   );
 }
 
-function AIChatPanel({lang,onClose,extMsg,extKey,ctx}){
+// ─── AI Chat Sidebar ──────────────────────────────────────────────────────────
+
+function AIChatSidebar({lang,extMsg,extKey,ctx}){
   const t=L[lang];
   const welcome=lang==='ru'
-    ?'Привет! 👋 Я здесь, чтобы помочь заполнить заявку.\n\nНажимайте кнопку ⓘ рядом с любым документом — я сразу объясню:\n• Что это такое\n• Как подготовить\n• Зачем это нужно инвестору\n\nЧем могу помочь?'
-    :'Hi! 👋 I\'m here to help you complete the application.\n\nClick the ⓘ button next to any document — I\'ll immediately explain:\n• What it is\n• How to prepare it\n• Why the investor needs it\n\nHow can I help?';
+    ?'Привет! Я здесь, чтобы помочь заполнить заявку.\n\nНажимайте кнопку ⓘ рядом с любым документом — я сразу объясню:\n• Что это такое\n• Как подготовить\n• Зачем это нужно инвестору\n\nЧем могу помочь?'
+    :'Hi! I\'m here to help you complete the application.\n\nClick the ⓘ button next to any document — I\'ll explain:\n• What it is\n• How to prepare it\n• Why the investor needs it\n\nHow can I help?';
   const [msgs,setMsgs]=useState([{role:'assistant',content:welcome}]);
   const [input,setInput]=useState('');
   const [loading,setLoading]=useState(false);
   const [hist,setHist]=useState([]);
   const endRef=useRef(null);
   const inpRef=useRef(null);
+
   useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[msgs,loading]);
-  useEffect(()=>{if(extMsg){send(extMsg);setTimeout(()=>inpRef.current?.focus(),400);}},[extKey]);
+  useEffect(()=>{if(extMsg){send(extMsg);setTimeout(()=>inpRef.current?.focus(),300);}},[extKey]);
 
   async function send(text){
     const q=(text||input).trim();if(!q||loading)return;
@@ -425,7 +509,7 @@ function AIChatPanel({lang,onClose,extMsg,extKey,ctx}){
       setMsgs(p=>[...p,{role:'assistant',content:reply}]);
       setHist([...nh,{role:'assistant',content:reply}]);
     }catch{
-      setMsgs(p=>[...p,{role:'assistant',content:lang==='ru'?'Не удалось подключиться. Убедитесь что /api/chat доступен.':'Could not connect. Make sure /api/chat is available.'}]);
+      setMsgs(p=>[...p,{role:'assistant',content:lang==='ru'?'Не удалось подключиться.':'Could not connect.'}]);
     }
     setLoading(false);
   }
@@ -433,83 +517,78 @@ function AIChatPanel({lang,onClose,extMsg,extKey,ctx}){
   const qs=[t.suggestQ1,t.suggestQ2,lang==='ru'?'Что такое Gate Check?':'What is Gate Check?',lang==='ru'?'Расскажи о юридическом пакете':'Tell me about the legal package'];
 
   return(
-    <>
-      <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,.3)',zIndex:498,backdropFilter:'blur(3px)'}}/>
-      <div style={{position:'fixed',top:0,right:0,bottom:0,width:'50vw',minWidth:420,maxWidth:780,background:'linear-gradient(180deg,#0d1b35 0%,#091220 100%)',zIndex:499,display:'flex',flexDirection:'column',fontFamily:'inherit',boxShadow:'-16px 0 60px rgba(0,0,0,.4)'}}>
-        <div style={{padding:'22px 24px 18px',borderBottom:'1px solid rgba(255,255,255,.08)',flexShrink:0}}>
-          <div style={{display:'flex',alignItems:'center',gap:14}}>
-            <div style={{width:46,height:46,borderRadius:14,background:'linear-gradient(135deg,#3b82f6,#6366f1)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,boxShadow:'0 6px 20px rgba(59,130,246,.45)'}}><IZap sz={22}/></div>
-            <div style={{flex:1}}>
-              <div style={{fontSize:17,fontWeight:700,color:'#fff',letterSpacing:'-0.3px'}}>{t.aiAssistant}</div>
-              <div style={{fontSize:12,color:'rgba(255,255,255,.4)',marginTop:2}}>{t.aiSub}</div>
-            </div>
-            <button onClick={onClose} style={{width:36,height:36,borderRadius:10,background:'rgba(255,255,255,.1)',border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',transition:'background .15s'}}
-              onMouseOver={e=>e.currentTarget.style.background='rgba(255,255,255,.18)'} onMouseOut={e=>e.currentTarget.style.background='rgba(255,255,255,.1)'}>
-              <IX sz={14} col="#9ca3af"/>
-            </button>
+    <div style={{position:'sticky',top:72,background:'#fff',borderRadius:18,border:`1.5px solid ${T.accentBorder}`,display:'flex',flexDirection:'column',height:'calc(100vh - 90px)',maxHeight:720,overflow:'hidden',boxShadow:'0 6px 30px rgba(29,107,252,.1)',fontFamily:'inherit'}}>
+      {/* Header */}
+      <div style={{padding:'16px 20px',borderBottom:`1px solid ${T.borderLight}`,background:'linear-gradient(135deg,#EEF4FF 0%,#F4F8FF 100%)',flexShrink:0}}>
+        <div style={{display:'flex',alignItems:'center',gap:12}}>
+          <div style={{width:42,height:42,borderRadius:13,background:'linear-gradient(135deg,#3b82f6 0%,#6366f1 100%)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,boxShadow:'0 4px 14px rgba(59,130,246,.35)'}}>
+            <IStar sz={18} col="#fff"/>
           </div>
-        </div>
-        <div style={{flex:1,overflowY:'auto',padding:'20px 22px 8px',display:'flex',flexDirection:'column',gap:14}}>
-          {msgs.map((m,i)=>(
-            <div key={i} style={{display:'flex',justifyContent:m.role==='user'?'flex-end':'flex-start',alignItems:'flex-end',gap:10}}>
-              {m.role==='assistant'&&<div style={{width:30,height:30,borderRadius:9,background:'rgba(99,102,241,.25)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginBottom:2}}><IZap sz={13} col="#818cf8"/></div>}
-              <div style={{maxWidth:'78%',padding:'12px 16px',borderRadius:m.role==='user'?'18px 18px 4px 18px':'4px 18px 18px 18px',background:m.role==='user'?T.accent:'rgba(255,255,255,.1)',color:'#fff',fontSize:14,lineHeight:1.7,whiteSpace:'pre-wrap',border:m.role==='user'?'none':'1px solid rgba(255,255,255,.07)'}}>
-                {m.content}
-              </div>
-            </div>
-          ))}
-          {loading&&<div style={{display:'flex',alignItems:'flex-end',gap:10}}>
-            <div style={{width:30,height:30,borderRadius:9,background:'rgba(99,102,241,.25)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><IZap sz={13} col="#818cf8"/></div>
-            <div style={{padding:'12px 18px',background:'rgba(255,255,255,.1)',borderRadius:'4px 18px 18px 18px',border:'1px solid rgba(255,255,255,.07)',display:'flex',gap:6,alignItems:'center'}}>
-              {[0,1,2].map(i=><div key={i} style={{width:8,height:8,borderRadius:'50%',background:'rgba(255,255,255,.5)',animation:`aDot 1.2s ${i*.2}s infinite`}}/>)}
-            </div>
-          </div>}
-          <div ref={endRef}/>
-        </div>
-        {msgs.length<=2&&<div style={{padding:'4px 22px 10px',display:'flex',flexDirection:'column',gap:7}}>
-          {qs.map((q,i)=>(
-            <button key={i} onClick={()=>send(q)} style={{padding:'12px 16px',borderRadius:13,border:'1px solid rgba(255,255,255,.12)',background:'rgba(255,255,255,.06)',color:'rgba(255,255,255,.8)',fontSize:14,textAlign:'left',cursor:'pointer',fontFamily:'inherit',transition:'all .15s',lineHeight:1.3}}
-              onMouseOver={e=>{e.currentTarget.style.background='rgba(255,255,255,.11)';e.currentTarget.style.borderColor='rgba(255,255,255,.22)';}}
-              onMouseOut={e=>{e.currentTarget.style.background='rgba(255,255,255,.06)';e.currentTarget.style.borderColor='rgba(255,255,255,.12)';}}>
-              {q}
-            </button>
-          ))}
-        </div>}
-        <div style={{padding:'12px 22px 26px',borderTop:'1px solid rgba(255,255,255,.08)',flexShrink:0}}>
-          <div style={{display:'flex',gap:10,background:'rgba(255,255,255,.07)',borderRadius:16,border:'1px solid rgba(255,255,255,.12)',padding:'6px 6px 6px 16px',alignItems:'flex-end'}}>
-            <textarea ref={inpRef} value={input}
-              onChange={e=>{setInput(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,120)+'px';}}
-              onKeyDown={e=>e.key==='Enter'&&!e.shiftKey&&(e.preventDefault(),send())}
-              placeholder={t.aiPlaceholder} rows={1}
-              style={{flex:1,background:'transparent',border:'none',outline:'none',color:'#fff',fontSize:15,fontFamily:'inherit',lineHeight:1.5,resize:'none',padding:'8px 0',maxHeight:120,overflowY:'auto'}}/>
-            <button onClick={()=>send()} disabled={loading||!input.trim()}
-              style={{width:44,height:44,borderRadius:13,background:input.trim()?T.accent:'rgba(255,255,255,.08)',border:'none',cursor:input.trim()?'pointer':'default',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,transition:'all .18s',boxShadow:input.trim()?'0 4px 14px rgba(29,107,252,.5)':'none'}}>
-              <ISend sz={17}/>
-            </button>
+          <div style={{flex:1}}>
+            <div style={{fontSize:15,fontWeight:700,color:T.text,letterSpacing:'-0.2px'}}>{t.aiAssistant}</div>
+            <div style={{fontSize:11,color:T.textSubtle,marginTop:1}}>{t.aiSub}</div>
           </div>
-          <div style={{textAlign:'center',marginTop:8,fontSize:11,color:'rgba(255,255,255,.2)'}}>{lang==='ru'?'Enter — отправить · Shift+Enter — новая строка':'Enter to send · Shift+Enter for new line'}</div>
+          <div style={{width:8,height:8,borderRadius:'50%',background:'#22c55e',boxShadow:'0 0 0 2px #dcfce7'}}/>
         </div>
       </div>
-      <style>{`@keyframes aDot{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}`}</style>
-    </>
-  );
-}
 
-function ProgressBar({filled,total,lang}){
-  const t=L[lang];const pct=Math.round((filled/total)*100);
-  const color=pct===100?T.green:pct>=60?T.amber:T.red;
-  return(
-    <div style={{background:T.surface,border:`1.5px solid ${T.accentBorder}`,borderRadius:14,padding:'13px 18px'}}>
-      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:9}}>
-        <span style={{fontSize:13,color:T.textMuted}}>{t.progress} <strong style={{color}}>{filled}</strong> {t.of} {total} {t.fields}</span>
-        <span style={{fontSize:13,fontWeight:700,color,background:color+'20',padding:'2px 10px',borderRadius:7}}>{pct}%</span>
+      {/* Messages */}
+      <div style={{flex:1,overflowY:'auto',padding:'14px 16px',display:'flex',flexDirection:'column',gap:12,background:'#FAFBFF'}}>
+        {msgs.map((m,i)=>(
+          <div key={i} style={{display:'flex',justifyContent:m.role==='user'?'flex-end':'flex-start',alignItems:'flex-end',gap:8}}>
+            {m.role==='assistant'&&<div style={{width:28,height:28,borderRadius:9,background:T.accentBg,border:`1px solid ${T.accentBorder}`,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginBottom:2}}>
+              <IStar sz={12} col={T.accent}/>
+            </div>}
+            <div style={{maxWidth:'80%',padding:'10px 14px',borderRadius:m.role==='user'?'16px 16px 4px 16px':'4px 16px 16px 16px',background:m.role==='user'?T.accent:'#fff',color:m.role==='user'?'#fff':T.text,fontSize:13,lineHeight:1.65,whiteSpace:'pre-wrap',border:m.role==='user'?'none':`1px solid ${T.borderLight}`,boxShadow:m.role==='user'?'none':'0 1px 4px rgba(0,0,0,.05)'}}>
+              {m.content}
+            </div>
+          </div>
+        ))}
+        {loading&&<div style={{display:'flex',alignItems:'flex-end',gap:8}}>
+          <div style={{width:28,height:28,borderRadius:9,background:T.accentBg,border:`1px solid ${T.accentBorder}`,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+            <IStar sz={12} col={T.accent}/>
+          </div>
+          <div style={{padding:'10px 16px',background:'#fff',borderRadius:'4px 16px 16px 16px',border:`1px solid ${T.borderLight}`,display:'flex',gap:5,alignItems:'center'}}>
+            {[0,1,2].map(i=><div key={i} style={{width:7,height:7,borderRadius:'50%',background:T.accent,opacity:.4,animation:`aDot2 1.2s ${i*.2}s infinite`}}/>)}
+          </div>
+        </div>}
+        <div ref={endRef}/>
       </div>
-      <div style={{height:7,background:'#EDE9E2',borderRadius:5,overflow:'hidden'}}>
-        <div style={{height:'100%',width:`${pct}%`,background:`linear-gradient(90deg,${T.accent},#6366f1)`,borderRadius:5,transition:'width .5s ease'}}/>
+
+      {/* Suggested questions */}
+      {msgs.length<=2&&<div style={{padding:'0 14px 8px',display:'flex',flexDirection:'column',gap:6}}>
+        {qs.map((q,i)=>(
+          <button key={i} onClick={()=>send(q)} style={{padding:'10px 14px',borderRadius:11,border:`1px solid ${T.border}`,background:'#F7F9FC',color:T.text,fontSize:13,textAlign:'left',cursor:'pointer',fontFamily:'inherit',transition:'all .15s',lineHeight:1.4}}
+            onMouseOver={e=>{e.currentTarget.style.background=T.accentBg;e.currentTarget.style.borderColor=T.accentBorder;e.currentTarget.style.color=T.accent;}}
+            onMouseOut={e=>{e.currentTarget.style.background='#F7F9FC';e.currentTarget.style.borderColor=T.border;e.currentTarget.style.color=T.text;}}>
+            {q}
+          </button>
+        ))}
+      </div>}
+
+      {/* Input */}
+      <div style={{padding:'10px 14px 16px',borderTop:`1px solid ${T.borderLight}`,background:'#fff',flexShrink:0}}>
+        <div style={{display:'flex',gap:8,alignItems:'flex-end'}}>
+          <textarea ref={inpRef} value={input}
+            onChange={e=>{setInput(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,100)+'px';}}
+            onKeyDown={e=>e.key==='Enter'&&!e.shiftKey&&(e.preventDefault(),send())}
+            placeholder={t.aiPlaceholder} rows={1}
+            style={{flex:1,border:`1.5px solid ${T.border}`,borderRadius:10,padding:'9px 12px',fontSize:13,fontFamily:'inherit',outline:'none',resize:'none',maxHeight:100,overflowY:'auto',color:T.text,lineHeight:1.4,transition:'border-color .15s'}}
+            onFocus={e=>e.target.style.borderColor=T.accent}
+            onBlur={e=>e.target.style.borderColor=T.border}/>
+          <button onClick={()=>send()} disabled={loading||!input.trim()}
+            style={{width:38,height:38,borderRadius:10,background:input.trim()?T.accent:'#E8EDF5',border:'none',cursor:input.trim()?'pointer':'default',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,transition:'all .18s',boxShadow:input.trim()?'0 3px 12px rgba(29,107,252,.4)':'none'}}>
+            <ISend sz={15} col="#fff"/>
+          </button>
+        </div>
+        <div style={{textAlign:'center',marginTop:6,fontSize:10,color:T.textSubtle}}>{lang==='ru'?'Enter — отправить · Shift+Enter — новая строка':'Enter to send · Shift+Enter for new line'}</div>
       </div>
+      <style>{`@keyframes aDot2{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}`}</style>
     </div>
   );
 }
+
+// ─── Home ─────────────────────────────────────────────────────────────────────
 
 function Home({go}){
   return(
@@ -544,56 +623,84 @@ function Home({go}){
   );
 }
 
+// ─── Form ─────────────────────────────────────────────────────────────────────
+
 function Form({go}){
   const [lang,setLang]=useState('ru');
   const t=L[lang];
-  const [panel,setPanel]=useState('A');
   const [founders,setFounders]=useState([{name:'',country:'Казахстан',role:'CEO',links:[{type:'LinkedIn',url:''}]}]);
-  const [co,setCo]=useState({company:'',activity:'',stage:STAGES_RU[0],email:'',desc:'',site:'',invest:'',currency:'USD'});
+  const [co,setCo]=useState({company:'',activity:'',stage:STAGES_RU[0],email:'',desc:'',site:'',invest:''});
   const [docs,setDocs]=useState({});
-  const [showAI,setShowAI]=useState(false);
   const [aiMsg,setAiMsg]=useState(null);
   const [aiKey,setAiKey]=useState(0);
+  const [fr,setFr]=useState(false);
+  const [pubUrl,setPubUrl]=useState('');
+
+  // Accordion states: company open by default
+  const [sections,setSections]=useState({company:true,founder:false,dataroom:false});
+  // Data room sub-sections: mandatory auto-opens when dataroom opens
+  const [drSubs,setDrSubs]=useState({mandatory:false,demo:false,legal:false});
+
+  const toggleSection=(key)=>{
+    const opening=!sections[key];
+    setSections(s=>({...s,[key]:!s[key]}));
+    if(key==='dataroom'&&opening){
+      setDrSubs(s=>({...s,mandatory:true}));
+    }
+  };
+
+  // Toast system
+  const [toasts,setToasts]=useState([]);
+  const addToast=useCallback((msg,type='info')=>{
+    const id=Date.now()+Math.random();
+    setToasts(t=>[...t,{id,msg,type}]);
+    setTimeout(()=>setToasts(t=>t.filter(x=>x.id!==id)),5000);
+  },[]);
+
+  const hasSaved=useRef(false);
+  useEffect(()=>{
+    if(hasSaved.current)return;
+    const timer=setTimeout(()=>{addToast(t.draftSaved,'success');hasSaved.current=true;},2500);
+    return()=>clearTimeout(timer);
+  },[]);
+
+  const hintShown=useRef(false);
+  useEffect(()=>{
+    if(hintShown.current||!co.company||!co.activity||!founders[0]?.name||docs.pitch)return;
+    const timer=setTimeout(()=>{addToast(t.draftHint,'info');hintShown.current=true;},6000);
+    return()=>clearTimeout(timer);
+  },[co.company,co.activity,founders[0]?.name,docs.pitch]);
 
   const upDoc=(id,name)=>setDocs(d=>({...d,[id]:name}));
   const upFnd=(i,p)=>setFounders(f=>f.map((fd,j)=>j===i?{...fd,...p}:fd));
   const sk=stageKey(co.stage);
   const gs=(doc)=>docStatus(doc,sk);
 
-  const reqIds=['pitch',...['mkt','tech','unit','founders','cap','val'].filter(id=>SD[id]&&SD[id][sk]==='required'),'fin'].filter(id=>{
-    if(id==='pitch'||id==='fin')return true;
-    return SD[id]&&SD[id][sk]==='required';
-  });
-
+  const reqIds=['pitch',...['mkt','tech','unit','founders','cap','val'].filter(id=>SD[id]&&SD[id][sk]==='required'),'fin'];
   const issues=gateCheck(co,founders,lang);
   const blocked=issues.some(i=>i.type==='block');
   const canSub=reqIds.every(id=>Boolean(docs[id]))&&!blocked;
 
-  const filled=[co.company,co.activity,co.stage,co.email,co.desc,co.site,co.invest,founders[0]?.name,docs.pitch,docs.fin,docs.mkt].filter(Boolean).length;
-
-  const openAI=(msg)=>{setAiMsg(msg||null);setAiKey(k=>k+1);setShowAI(true);};
-
+  const openAI=(msg)=>{setAiMsg(msg||null);setAiKey(k=>k+1);};
   const ctx={company:co.company,activity:co.activity,stage:co.stage,email:co.email,desc:co.desc,founders:founders.map(f=>({name:f.name,country:f.country,role:f.role}))};
-
-  const [fr,setFr]=useState(false);
-  const [pubUrl,setPubUrl]=useState('');
 
   const videoDoc={id:'video',labelRu:'Видео-демонстрация',labelEn:'Video Demo',whatRu:'Запись экрана 5–15 мин с комментарием.',whatEn:'Screen recording 5–15 min with commentary.',howRu:'Через Loom: регистрация, core flow, aha-момент.',howEn:'Via Loom: registration, core flow, aha moment.',whyRu:'CPO+CTO проходит продукт изнутри.',whyEn:'CPO+CTO evaluates from inside.'};
   const roundsDoc={id:'rounds',labelRu:'Документы предыдущих раундов',labelEn:'Previous Round Documents',whatRu:'Term sheet, SAFE, займы.',whatEn:'Term sheet, SAFE, loans.',howRu:'Если первый раунд — нажмите кнопку.',howEn:'First round — click the button.',whyRu:'CFO и CLO оценивают существующие обязательства.',whyEn:'CFO and CLO evaluate existing obligations.'};
   const pitchDoc={id:'pitch',labelRu:'Pitch Deck',labelEn:'Pitch Deck',whatRu:'Презентация 10–20 слайдов: проблема, решение, рынок, бизнес-модель, трекшн, команда.',whatEn:'10–20 slides: problem, solution, market, business model, traction, team.',howRu:'PDF или PowerPoint. Четко, без воды.',howEn:'PDF or PowerPoint. Clear and concise.',whyRu:'Все 6 агентов начинают с него. Без — заявка не обрабатывается.',whyEn:'All 6 agents start with it. Without — application not processed.'};
 
   return(
-    <div style={{fontFamily:'-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif',background:'#fff',minHeight:'100vh',WebkitFontSmoothing:'antialiased',width:'100%'}}>
-      {/* Sticky header */}
-      <div style={{position:'sticky',top:0,zIndex:200,background:'rgba(255,255,255,.96)',backdropFilter:'blur(14px)',WebkitBackdropFilter:'blur(14px)',borderBottom:`1px solid ${T.border}`,padding:'10px 20px',display:'flex',alignItems:'center',gap:16}}>
+    <div style={{fontFamily:'-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif',background:T.bg,minHeight:'100vh',WebkitFontSmoothing:'antialiased'}}>
+
+      {/* Header */}
+      <div style={{position:'sticky',top:0,zIndex:200,background:'rgba(255,255,255,.96)',backdropFilter:'blur(14px)',WebkitBackdropFilter:'blur(14px)',borderBottom:`1px solid ${T.border}`,padding:'11px 24px',display:'flex',alignItems:'center',gap:16}}>
         <button onClick={()=>go(SC.HOME)}
-          style={{display:'flex',alignItems:'center',gap:7,padding:'7px 16px',background:T.accent,border:'none',borderRadius:9,color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit',transition:'all .18s',boxShadow:'0 2px 8px rgba(29,107,252,.3)'}}
-          onMouseOver={e=>{e.currentTarget.style.background=T.accentHover;e.currentTarget.style.boxShadow='0 4px 14px rgba(29,107,252,.4)';}}
-          onMouseOut={e=>{e.currentTarget.style.background=T.accent;e.currentTarget.style.boxShadow='0 2px 8px rgba(29,107,252,.3)';}}>
+          style={{display:'flex',alignItems:'center',gap:7,padding:'7px 16px',background:T.accent,border:'none',borderRadius:9,color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit',transition:'all .18s',boxShadow:'0 2px 8px rgba(29,107,252,.3)',flexShrink:0}}
+          onMouseOver={e=>{e.currentTarget.style.background=T.accentHover;}}
+          onMouseOut={e=>{e.currentTarget.style.background=T.accent;}}>
           {t.back}
         </button>
-        <h1 style={{flex:1,textAlign:'center',fontSize:16,fontWeight:700,color:T.text,margin:0}}>{t.title}</h1>
-        <div style={{display:'flex',gap:3,background:'#EBF3FE',borderRadius:10,padding:3}}>
+        <h1 style={{flex:1,textAlign:'center',fontSize:17,fontWeight:700,color:T.text,margin:0,letterSpacing:'-0.3px'}}>{t.title}</h1>
+        <div style={{display:'flex',gap:3,background:'#EBF3FE',borderRadius:10,padding:3,flexShrink:0}}>
           {['ru','en'].map(l=>(
             <button key={l} onClick={()=>setLang(l)} style={{fontSize:13,padding:'5px 14px',borderRadius:8,border:'none',cursor:'pointer',fontFamily:'inherit',fontWeight:lang===l?700:500,background:lang===l?T.accent:'transparent',color:lang===l?'#fff':T.textMuted,boxShadow:lang===l?'0 2px 6px rgba(29,107,252,.3)':'none',transition:'all .18s'}}>
               {l==='ru'?'Ru':'Eng'}
@@ -602,200 +709,184 @@ function Form({go}){
         </div>
       </div>
 
-      <div style={{padding:'16px 16px 80px'}}>
-        {/* Top row */}
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10,marginBottom:14}}>
-          <div style={{display:'flex',alignItems:'center',gap:10,padding:'11px 16px',background:T.accentBg,borderRadius:12,border:`1px solid ${T.accentBorder}`}}>
-            <ISave sz={13} col={T.accent}/>
-            <div style={{flex:1}}><div style={{fontSize:13,fontWeight:600,color:T.accent}}>{t.restored}</div><div style={{fontSize:11,color:T.accent,opacity:.7}}>{t.restoredSub}</div></div>
-            <button style={{fontSize:11,color:T.textMuted,background:'white',border:`1px solid ${T.border}`,borderRadius:7,padding:'4px 10px',cursor:'pointer',fontFamily:'inherit'}}>{t.dismiss}</button>
-          </div>
-          <ProgressBar filled={filled} total={11} lang={lang}/>
-        </div>
+      {/* Main layout */}
+      <div style={{display:'flex',gap:18,padding:'20px 24px 60px',maxWidth:1340,margin:'0 auto',alignItems:'flex-start'}}>
 
-        {/* Panels */}
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,alignItems:'start'}}>
-          {/* Panel A */}
-          <div onClick={panel==='B'?()=>setPanel('A'):undefined}
-            style={{borderRadius:16,border:panel==='A'?`2px solid ${T.accentBorder}`:`1.5px solid ${T.border}`,background:T.surface,overflow:'hidden',transition:'all .3s',cursor:panel==='B'?'pointer':'default',opacity:panel==='A'?1:.75,filter:panel==='A'?'none':'saturate(0.5)'}}>
-            <div style={{padding:'12px 18px',background:panel==='A'?T.accentBg:'#F5F5F7',borderBottom:`1px solid ${panel==='A'?T.accentBorder:T.border}`,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-              <div style={{display:'flex',alignItems:'center',gap:10}}>
-                <div style={{width:32,height:32,borderRadius:'50%',background:panel==='A'?T.accent:'#D1D5DB',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13,fontWeight:800,color:'#fff'}}>A</div>
-                <div><div style={{fontSize:15,fontWeight:700,color:T.text}}>{t.basicInfo}</div><div style={{fontSize:11,color:T.textSubtle}}>{lang==='ru'?'Фаундеры, компания, контакты':'Founders, company, contacts'}</div></div>
-              </div>
-              <span style={{fontSize:11,fontWeight:600,color:panel==='A'?T.accent:T.textSubtle,background:'#fff',border:`1px solid ${panel==='A'?T.accentBorder:T.border}`,padding:'3px 10px',borderRadius:8}}>
-                {panel==='A'?t.panelActive:t.panelSwitch}
-              </span>
-            </div>
-            <div style={{padding:16,pointerEvents:panel==='A'?'auto':'none'}}>
-              {founders.map((f,i)=><FounderBlock key={i} founder={f} index={i} lang={lang} onChange={p=>upFnd(i,p)} onRemove={()=>setFounders(f=>f.filter((_,j)=>j!==i))}/>)}
-              <button onClick={()=>setFounders(f=>[...f,{name:'',country:'Казахстан',role:'CTO',links:[]}])}
-                style={{display:'flex',alignItems:'center',gap:6,fontSize:13,color:T.accent,background:T.accentBg,border:`1.5px dashed ${T.accentBorder}`,cursor:'pointer',padding:'10px 18px',borderRadius:12,fontFamily:'inherit',fontWeight:600,width:'100%',justifyContent:'center',marginBottom:14,transition:'all .15s'}}
-                onMouseOver={e=>e.currentTarget.style.background='rgba(29,107,252,.12)'} onMouseOut={e=>e.currentTarget.style.background=T.accentBg}>
-                <IPlus sz={14} col={T.accent}/>{lang==='ru'?'Добавить со-фаундера':'Add co-founder'}
-              </button>
-              <CompanyBlock data={co} lang={lang} onChange={p=>setCo(d=>({...d,...p}))} founders={founders}/>
-              <div style={{textAlign:'center',marginTop:14}}>
-                <button onClick={()=>setPanel('B')} style={{background:'none',border:'none',cursor:'pointer',fontSize:13,color:T.accent,fontFamily:'inherit',fontWeight:600}}>{t.switchToB}</button>
-              </div>
-            </div>
-          </div>
+        {/* Left: Form */}
+        <div style={{flex:1,minWidth:0}}>
 
-          {/* Panel B */}
-          <div onClick={panel==='A'?()=>setPanel('B'):undefined}
-            style={{borderRadius:16,border:panel==='B'?`2px solid ${T.accentBorder}`:`1.5px solid ${T.border}`,background:T.surface,overflow:'hidden',transition:'all .3s',cursor:panel==='A'?'pointer':'default',opacity:panel==='B'?1:.75,filter:panel==='B'?'none':'saturate(0.5)'}}>
-            <div style={{padding:'12px 18px',background:panel==='B'?T.accentBg:'#F5F5F7',borderBottom:`1px solid ${panel==='B'?T.accentBorder:T.border}`,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-              <div style={{display:'flex',alignItems:'center',gap:10}}>
-                <div style={{width:32,height:32,borderRadius:'50%',background:panel==='B'?T.accent:'#D1D5DB',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13,fontWeight:800,color:'#fff'}}>Б</div>
-                <div><div style={{fontSize:15,fontWeight:700,color:T.text}}>{t.docUpload}</div><div style={{fontSize:11,color:T.textSubtle}}>{lang==='ru'?'Адаптировано: ':'Adapted: '}<span style={{color:T.accent,fontWeight:600}}>{sk==='seed'?'Seed':'Pre-seed'}</span></div></div>
-              </div>
-              <span style={{fontSize:11,fontWeight:600,color:panel==='B'?T.accent:T.textSubtle,background:'#fff',border:`1px solid ${panel==='B'?T.accentBorder:T.border}`,padding:'3px 10px',borderRadius:8}}>
-                {panel==='B'?t.panelActive:t.panelSwitch}
-              </span>
-            </div>
-            <div style={{padding:16,pointerEvents:panel==='B'?'auto':'none'}}>
-              {/* Cat 1 */}
-              <div style={{background:T.surface,borderRadius:16,border:`1.5px solid ${T.redBorder}`,overflow:'hidden',marginBottom:14}}>
-                <div style={{padding:'12px 18px',background:'linear-gradient(135deg,#fff5f5,#fff8f8)',borderBottom:`1px solid ${T.redBorder}`,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-                  <div><div style={{fontSize:11,fontWeight:700,color:T.red,letterSpacing:'.1em',marginBottom:2}}>{t.mandatory}</div><div style={{fontSize:11,color:T.textSubtle}}>Pitch Deck · Субдокументы · Финансовая модель</div></div>
-                  <span style={{fontSize:13,fontWeight:700,color:canSub?T.green:T.red}}>{reqIds.filter(id=>docs[id]).length}/{reqIds.length}</span>
+          {/* Section 1: Company */}
+          <AccordionSection
+            title={t.companySection}
+            subtitle={t.companySub}
+            open={sections.company}
+            onToggle={()=>toggleSection('company')}>
+            <CompanyBlock data={co} lang={lang} onChange={p=>setCo(d=>({...d,...p}))} founders={founders}/>
+          </AccordionSection>
+
+          {/* Section 2: Founder */}
+          <AccordionSection
+            title={t.founderSection}
+            subtitle={t.founderSub}
+            open={sections.founder}
+            onToggle={()=>toggleSection('founder')}>
+            {founders.map((f,i)=><FounderBlock key={i} founder={f} index={i} lang={lang} onChange={p=>upFnd(i,p)} onRemove={()=>setFounders(f=>f.filter((_,j)=>j!==i))}/>)}
+            <button onClick={()=>setFounders(f=>[...f,{name:'',country:'Казахстан',role:'CTO',links:[]}])}
+              style={{display:'flex',alignItems:'center',gap:6,fontSize:13,color:T.accent,background:T.accentBg,border:`1.5px dashed ${T.accentBorder}`,cursor:'pointer',padding:'10px 18px',borderRadius:12,fontFamily:'inherit',fontWeight:600,width:'100%',justifyContent:'center',transition:'all .15s'}}
+              onMouseOver={e=>e.currentTarget.style.background='rgba(29,107,252,.12)'} onMouseOut={e=>e.currentTarget.style.background=T.accentBg}>
+              <IPlus sz={14} col={T.accent}/>{lang==='ru'?'Добавить со-фаундера':'Add co-founder'}
+            </button>
+          </AccordionSection>
+
+          {/* Section 3: Data Room */}
+          <AccordionSection
+            title={t.docSection}
+            subtitle={`${t.docSub} · ${lang==='ru'?'Адаптировано':'Adapted'}: ${sk==='seed'?'Seed':'Pre-seed'}`}
+            open={sections.dataroom}
+            onToggle={()=>toggleSection('dataroom')}
+            accentColor="#7c3aed">
+
+            {/* Mandatory — auto-opens, no toggle arrow */}
+            <div style={{border:`1.5px solid ${T.redBorder}`,borderRadius:14,overflow:'hidden',marginBottom:14}}>
+              <div style={{padding:'12px 18px',background:'linear-gradient(135deg,#fff5f5,#fff8f8)',borderBottom:`1px solid ${T.redBorder}`,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                <div>
+                  <div style={{fontSize:12,fontWeight:700,color:T.red,letterSpacing:'.1em',marginBottom:2}}>{t.mandatory}</div>
+                  <div style={{fontSize:11,color:T.textSubtle}}>Pitch Deck · Субдокументы · Финансовая модель</div>
                 </div>
-                <div style={{padding:16}}>
-                  <DropZone id="pitch" doc={pitchDoc} val={docs.pitch} onUp={upDoc} lang={lang} t={t} onAsk={openAI}/>
-                  <div style={{marginTop:14}}>
-                    <div style={{fontSize:10,fontWeight:700,color:T.textSubtle,letterSpacing:'.12em',textTransform:'uppercase',textAlign:'center',padding:'7px 0',borderBottom:`1px solid ${T.borderLight}`,marginBottom:2}}>{t.subdocLabel}</div>
-                    {['mkt','tech','unit','founders','cap','val'].map(id=>(
-                      <SlotRow key={id} id={id} doc={SD[id]} val={docs[id]} status={gs(SD[id])} onUp={upDoc} lang={lang} t={t} onAsk={openAI}/>
-                    ))}
+                <span style={{fontSize:13,fontWeight:700,color:canSub?T.green:T.red}}>{reqIds.filter(id=>docs[id]).length}/{reqIds.length}</span>
+              </div>
+              <div style={{padding:16}}>
+                <DropZone id="pitch" doc={pitchDoc} val={docs.pitch} onUp={upDoc} lang={lang} t={t} onAsk={openAI}/>
+                <div style={{marginTop:14}}>
+                  <div style={{fontSize:10,fontWeight:700,color:T.textSubtle,letterSpacing:'.12em',textTransform:'uppercase',textAlign:'center',padding:'7px 0',borderBottom:`1px solid ${T.borderLight}`,marginBottom:2}}>{lang==='ru'?'СУБДОКУМЕНТЫ К PITCH DECK':'SUBDOCUMENTS TO PITCH DECK'}</div>
+                  {['mkt','tech','unit','founders','cap','val'].map(id=>(
+                    <SlotRow key={id} id={id} doc={SD[id]} val={docs[id]} status={gs(SD[id])} onUp={upDoc} lang={lang} t={t} onAsk={openAI}/>
+                  ))}
+                </div>
+                <div style={{marginTop:12,paddingTop:12,borderTop:`1px solid ${T.borderLight}`}}>
+                  <div style={{fontSize:12,fontWeight:700,color:T.text,marginBottom:8,display:'flex',alignItems:'center',gap:6}}>
+                    {t.finModel}<span style={{fontSize:10,color:T.green,background:T.greenBg,border:`1px solid ${T.greenBorder}`,padding:'1px 8px',borderRadius:5,fontWeight:700}}>Excel</span>
                   </div>
-                  <div style={{marginTop:12,paddingTop:12,borderTop:`1px solid ${T.borderLight}`}}>
-                    <div style={{fontSize:12,fontWeight:700,color:T.text,marginBottom:8,display:'flex',alignItems:'center',gap:6}}>
-                      {t.finModel}<span style={{fontSize:10,color:T.green,background:T.greenBg,border:`1px solid ${T.greenBorder}`,padding:'1px 8px',borderRadius:5,fontWeight:700}}>Excel</span>
-                    </div>
-                    <SlotRow id="fin" doc={SD.fin} val={docs.fin} status={gs(SD.fin)} onUp={upDoc} lang={lang} t={t} onAsk={openAI}/>
+                  <SlotRow id="fin" doc={SD.fin} val={docs.fin} status={gs(SD.fin)} onUp={upDoc} lang={lang} t={t} onAsk={openAI}/>
+                </div>
+              </div>
+            </div>
+
+            {/* Product Demo — sub-accordion */}
+            <SubAccordion
+              title={t.productDemo}
+              subtitle={t.productDemoSub}
+              open={drSubs.demo}
+              onToggle={()=>setDrSubs(s=>({...s,demo:!s.demo}))}
+              color={T.purple}>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:14}}>
+                <div style={{border:`1.5px solid ${T.accentBorder}`,borderRadius:12,overflow:'hidden'}}>
+                  <div style={{padding:'9px 13px',background:T.accentBg,borderBottom:`1px solid ${T.accentBorder}`,display:'flex',alignItems:'center',gap:6}}>
+                    <span style={{fontSize:12,fontWeight:700,color:T.accent}}>{t.accessLabel}</span>
+                    {sk==='seed'&&<span style={{fontSize:10,color:T.accent,background:'#fff',border:`1px solid ${T.accentBorder}`,padding:'1px 7px',borderRadius:5,marginLeft:'auto'}}>{t.accessSub}</span>}
+                  </div>
+                  <div style={{padding:11,display:'flex',flexDirection:'column',gap:8}}>
+                    <input style={{...inp,fontSize:12}} placeholder="URL продукта" onChange={e=>upDoc('prod_url',e.target.value)}/>
+                    <input style={{...inp,fontSize:12}} placeholder={lang==='ru'?'Логин / Email':'Login / Email'} onChange={e=>upDoc('prod_login',e.target.value)}/>
+                    <input style={{...inp,fontSize:12}} type="password" placeholder={lang==='ru'?'Пароль':'Password'} onChange={e=>upDoc('prod_pass',e.target.value)}/>
+                    <p style={{fontSize:10,color:T.textSubtle,margin:0}}>⚠ {lang==='ru'?'Credentials удаляются после анализа':'Credentials deleted after analysis'}</p>
+                  </div>
+                </div>
+                <div style={{border:`1.5px solid ${T.purpleBorder}`,borderRadius:12,overflow:'hidden'}}>
+                  <div style={{padding:'9px 13px',background:T.purpleBg,borderBottom:`1px solid ${T.purpleBorder}`,display:'flex',alignItems:'center',gap:6}}>
+                    <IVideo sz={13} col={T.purple}/>
+                    <span style={{fontSize:12,fontWeight:700,color:T.purple}}>{t.videoLabel}</span>
+                    <span style={{fontSize:10,color:T.purple,background:'#fff',border:`1px solid ${T.purpleBorder}`,padding:'1px 7px',borderRadius:5,marginLeft:'auto'}}>{t.videoSub}</span>
+                  </div>
+                  <div style={{padding:11}}>
+                    {docs.video?(
+                      <div style={{display:'flex',alignItems:'center',gap:8,padding:'9px 12px',background:T.greenBg,borderRadius:9,border:`1px solid ${T.greenBorder}`}}>
+                        <ICheck sz={13}/><span style={{fontSize:12,color:T.green,fontWeight:600,flex:1,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{docs.video}</span>
+                        <label style={{fontSize:11,color:T.textMuted,cursor:'pointer'}}>{t.replace}<input type="file" style={{display:'none'}} onChange={e=>{const f=e.target.files?.[0];if(f)upDoc('video',f.name)}}/></label>
+                      </div>
+                    ):(
+                      <label style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:7,height:82,border:`2px dashed ${T.purpleBorder}`,borderRadius:10,cursor:'pointer',background:'#fdf8ff'}}>
+                        <IUpload sz={18} col={T.purple}/>
+                        <span style={{fontSize:11,color:T.purple,textAlign:'center'}}>{lang==='ru'?'Видео — перетащите':'Video — drag or click'}</span>
+                        <input type="file" accept="video/*" style={{display:'none'}} onChange={e=>{const f=e.target.files?.[0];if(f)upDoc('video',f.name)}}/>
+                      </label>
+                    )}
+                    <DocInfo doc={videoDoc} lang={lang} t={t} onAsk={openAI}/>
                   </div>
                 </div>
               </div>
+              <div style={{marginBottom:12}}>
+                <label style={lbl}>{t.publicLink} <span style={{fontSize:10,color:T.textSubtle,background:'#F5F5F7',padding:'1px 7px',borderRadius:4,fontWeight:500,textTransform:'lowercase',letterSpacing:0}}>{t.publicLinkSub}</span></label>
+                <input style={{...inp,borderColor:pubUrl?T.green:T.border}} value={pubUrl} onChange={e=>{setPubUrl(e.target.value);upDoc('public_url',e.target.value);}} placeholder="https://app.yourproduct.kz"/>
+              </div>
+              <SlotRow id="rounds" doc={roundsDoc} val={docs.rounds} status="optional" onUp={upDoc} lang={lang} t={t} onAsk={openAI} firstRound={fr} onFR={()=>setFr(v=>!v)}/>
+            </SubAccordion>
 
-              {/* Product Demo */}
-              <div style={{background:T.surface,borderRadius:16,border:`1.5px solid ${T.purpleBorder}`,overflow:'hidden',marginBottom:14}}>
-                <div style={{padding:'12px 18px',background:`linear-gradient(135deg,${T.purpleBg},#fdf8ff)`,borderBottom:`1px solid ${T.purpleBorder}`,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-                  <div><div style={{fontSize:11,fontWeight:700,color:T.purple,letterSpacing:'.1em',marginBottom:2}}>{t.productDemo}</div><div style={{fontSize:11,color:T.textSubtle}}>{t.productDemoSub}</div></div>
-                  <div style={{width:30,height:30,borderRadius:9,background:T.purpleBg,border:`1px solid ${T.purpleBorder}`,display:'flex',alignItems:'center',justifyContent:'center'}}><IVideo sz={14} col={T.purple}/></div>
-                </div>
-                <div style={{padding:16}}>
-                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:14}}>
-                    <div style={{border:`1.5px solid ${T.accentBorder}`,borderRadius:12,overflow:'hidden'}}>
-                      <div style={{padding:'9px 13px',background:T.accentBg,borderBottom:`1px solid ${T.accentBorder}`,display:'flex',alignItems:'center',gap:6}}>
-                        <span style={{fontSize:12,fontWeight:700,color:T.accent}}>{t.accessLabel}</span>
-                        {sk==='seed'&&<span style={{fontSize:10,color:T.accent,background:'#fff',border:`1px solid ${T.accentBorder}`,padding:'1px 7px',borderRadius:5,marginLeft:'auto'}}>{t.accessSub}</span>}
-                      </div>
-                      <div style={{padding:11,display:'flex',flexDirection:'column',gap:8}}>
-                        <input style={{...inp,fontSize:12}} placeholder="URL продукта" onChange={e=>upDoc('prod_url',e.target.value)}/>
-                        <input style={{...inp,fontSize:12}} placeholder={lang==='ru'?'Логин / Email':'Login / Email'} onChange={e=>upDoc('prod_login',e.target.value)}/>
-                        <input style={{...inp,fontSize:12}} type="password" placeholder={lang==='ru'?'Пароль':'Password'} onChange={e=>upDoc('prod_pass',e.target.value)}/>
-                        <p style={{fontSize:10,color:T.textSubtle,margin:0}}>⚠ {lang==='ru'?'Credentials удаляются после анализа':'Credentials deleted after analysis'}</p>
-                      </div>
-                    </div>
-                    <div style={{border:`1.5px solid ${T.purpleBorder}`,borderRadius:12,overflow:'hidden'}}>
-                      <div style={{padding:'9px 13px',background:T.purpleBg,borderBottom:`1px solid ${T.purpleBorder}`,display:'flex',alignItems:'center',gap:6}}>
-                        <IVideo sz={13} col={T.purple}/>
-                        <span style={{fontSize:12,fontWeight:700,color:T.purple}}>{t.videoLabel}</span>
-                        <span style={{fontSize:10,color:T.purple,background:'#fff',border:`1px solid ${T.purpleBorder}`,padding:'1px 7px',borderRadius:5,marginLeft:'auto'}}>{t.videoSub}</span>
-                      </div>
-                      <div style={{padding:11}}>
-                        {docs.video?(
-                          <div style={{display:'flex',alignItems:'center',gap:8,padding:'9px 12px',background:T.greenBg,borderRadius:9,border:`1px solid ${T.greenBorder}`}}>
-                            <ICheck sz={13}/><span style={{fontSize:12,color:T.green,fontWeight:600,flex:1,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{docs.video}</span>
-                            <label style={{fontSize:11,color:T.textMuted,cursor:'pointer'}}>{t.replace}<input type="file" style={{display:'none'}} onChange={e=>{const f=e.target.files?.[0];if(f)upDoc('video',f.name)}}/></label>
+            {/* Legal Pack — sub-accordion */}
+            <SubAccordion
+              title={t.legalPack}
+              subtitle={t.legalPackSub}
+              open={drSubs.legal}
+              onToggle={()=>setDrSubs(s=>({...s,legal:!s.legal}))}
+              color={T.green}>
+              <div>
+                {LEGAL.map((item,idx)=>{
+                  const label2=lang==='ru'?item.labelRu:item.labelEn;
+                  const filled2=Boolean(docs[item.id]);
+                  return(
+                    <div key={item.id} style={{borderTop:idx>0?`1px solid ${T.borderLight}`:'none',padding:'11px 0'}}>
+                      <div style={{display:'flex',alignItems:'flex-start',gap:10}}>
+                        <div style={{width:26,height:26,borderRadius:8,background:filled2?T.greenBg:'#F5F5F7',border:`1px solid ${filled2?T.greenBorder:T.border}`,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:2}}>
+                          {filled2?<ICheck sz={12}/>:item.id==='ip'?<IKey sz={12}/>:<IShield sz={12} col={T.textSubtle}/>}
+                        </div>
+                        <div style={{flex:1,minWidth:0}}>
+                          <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:3}}>
+                            <span style={{fontSize:13,fontWeight:600,color:T.text}}>{label2}</span>
+                            <span style={{fontSize:10,color:T.textSubtle,background:'#F3F1EC',padding:'1px 6px',borderRadius:4}}>{t.optional}</span>
                           </div>
-                        ):(
-                          <label style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:7,height:82,border:`2px dashed ${T.purpleBorder}`,borderRadius:10,cursor:'pointer',background:'#fdf8ff'}}>
-                            <IUpload sz={18} col={T.purple}/>
-                            <span style={{fontSize:11,color:T.purple,textAlign:'center'}}>{lang==='ru'?'Видео — перетащите':'Video — drag or click'}</span>
-                            <input type="file" accept="video/*" style={{display:'none'}} onChange={e=>{const f=e.target.files?.[0];if(f)upDoc('video',f.name)}}/>
+                          {docs[item.id]&&<div style={{fontSize:11,color:T.textSubtle,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',marginBottom:3}}>{docs[item.id]}</div>}
+                          <DocInfo doc={item} lang={lang} t={t} onAsk={openAI}/>
+                        </div>
+                        <div style={{flexShrink:0}}>
+                          <label style={{fontSize:11,padding:'6px 12px',borderRadius:9,background:filled2?'#fff':T.green,color:filled2?T.textMuted:'#fff',cursor:'pointer',fontWeight:700,fontFamily:'inherit',border:`1.5px solid ${filled2?T.border:T.green}`,display:'block',transition:'all .15s',whiteSpace:'nowrap'}}
+                            onMouseOver={e=>e.currentTarget.style.boxShadow='0 2px 8px rgba(0,0,0,.12)'} onMouseOut={e=>e.currentTarget.style.boxShadow='none'}>
+                            {filled2?t.replace:t.upload}<input type="file" style={{display:'none'}} onChange={e=>{const f=e.target.files?.[0];if(f)upDoc(item.id,f.name)}}/>
                           </label>
-                        )}
-                        <DocInfo doc={videoDoc} lang={lang} t={t} onAsk={openAI}/>
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{marginBottom:12}}>
-                    <label style={{...lbl}}>{t.publicLink} <span style={{fontSize:10,color:T.textSubtle,background:'#F5F5F7',padding:'1px 7px',borderRadius:4,fontWeight:500,textTransform:'lowercase',letterSpacing:0}}>{t.publicLinkSub}</span></label>
-                    <input style={{...inp,borderColor:pubUrl?T.green:T.border}} value={pubUrl} onChange={e=>{setPubUrl(e.target.value);upDoc('public_url',e.target.value);}} placeholder="https://app.yourproduct.kz"/>
-                  </div>
-                  <SlotRow id="rounds" doc={roundsDoc} val={docs.rounds} status="optional" onUp={upDoc} lang={lang} t={t} onAsk={openAI} firstRound={fr} onFR={()=>setFr(v=>!v)}/>
-                </div>
-              </div>
-
-              {/* Legal */}
-              <div style={{background:T.surface,borderRadius:16,border:`1.5px solid ${T.greenBorder}`,overflow:'hidden',marginBottom:14}}>
-                <div style={{padding:'12px 18px',background:`linear-gradient(135deg,${T.greenBg},#f0fff4)`,borderBottom:`1px solid ${T.greenBorder}`,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-                  <div><div style={{fontSize:11,fontWeight:700,color:T.green,letterSpacing:'.1em',marginBottom:2}}>{t.legalPack}</div><div style={{fontSize:11,color:T.textSubtle}}>{t.legalPackSub}</div></div>
-                  <div style={{width:30,height:30,borderRadius:9,background:T.greenBg,border:`1px solid ${T.greenBorder}`,display:'flex',alignItems:'center',justifyContent:'center'}}><IShield sz={14} col={T.green}/></div>
-                </div>
-                <div style={{padding:'8px 16px 14px'}}>
-                  {LEGAL.map((item,idx)=>{
-                    const label2=lang==='ru'?item.labelRu:item.labelEn;
-                    const filled2=Boolean(docs[item.id]);
-                    return(
-                      <div key={item.id} style={{borderTop:idx>0?`1px solid ${T.borderLight}`:'none',padding:'11px 0'}}>
-                        <div style={{display:'flex',alignItems:'flex-start',gap:10}}>
-                          <div style={{width:26,height:26,borderRadius:8,background:filled2?T.greenBg:'#F5F5F7',border:`1px solid ${filled2?T.greenBorder:T.border}`,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:2}}>
-                            {filled2?<ICheck sz={12}/>:item.id==='ip'?<IKey sz={12}/>:<IShield sz={12} col={T.textSubtle}/>}
-                          </div>
-                          <div style={{flex:1,minWidth:0}}>
-                            <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:3}}>
-                              <span style={{fontSize:13,fontWeight:600,color:T.text}}>{label2}</span>
-                              <span style={{fontSize:10,color:T.textSubtle,background:'#F3F1EC',padding:'1px 6px',borderRadius:4}}>{t.optional}</span>
-                            </div>
-                            {docs[item.id]&&<div style={{fontSize:11,color:T.textSubtle,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',marginBottom:3}}>{docs[item.id]}</div>}
-                            <DocInfo doc={item} lang={lang} t={t} onAsk={openAI}/>
-                          </div>
-                          <div style={{flexShrink:0}}>
-                            <label style={{fontSize:11,padding:'6px 12px',borderRadius:9,background:filled2?'#fff':T.green,color:filled2?T.textMuted:'#fff',cursor:'pointer',fontWeight:700,fontFamily:'inherit',border:`1.5px solid ${filled2?T.border:T.green}`,display:'block',transition:'all .15s',whiteSpace:'nowrap'}}
-                              onMouseOver={e=>e.currentTarget.style.boxShadow='0 2px 8px rgba(0,0,0,.12)'} onMouseOut={e=>e.currentTarget.style.boxShadow='none'}>
-                              {filled2?t.replace:t.upload}<input type="file" style={{display:'none'}} onChange={e=>{const f=e.target.files?.[0];if(f)upDoc(item.id,f.name)}}/>
-                            </label>
-                          </div>
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
+            </SubAccordion>
 
-              {/* Submit */}
-              <div style={{borderRadius:16,border:`2px solid ${canSub?T.accent:T.border}`,background:canSub?T.accentBg:'#F5F5F7',padding:'18px 22px',textAlign:'center'}}>
-                <button onClick={canSub?()=>alert(lang==='ru'?'Заявка отправлена! Ожидайте письмо на почту.':'Application submitted! Check your email.'):undefined}
-                  style={{display:'inline-flex',alignItems:'center',gap:10,padding:'13px 32px',borderRadius:12,background:canSub?`linear-gradient(135deg,${T.accent},#6366f1)`:'#D1D5DB',border:'none',color:'#fff',fontSize:14,fontWeight:700,cursor:canSub?'pointer':'not-allowed',fontFamily:'inherit',boxShadow:canSub?'0 6px 20px rgba(29,107,252,.4)':'none',transition:'all .2s'}}
-                  onMouseOver={e=>{if(canSub){e.currentTarget.style.transform='translateY(-1px)';e.currentTarget.style.boxShadow='0 8px 28px rgba(29,107,252,.5)';}}}
-                  onMouseOut={e=>{e.currentTarget.style.transform='none';e.currentTarget.style.boxShadow=canSub?'0 6px 20px rgba(29,107,252,.4)':'none';}}>
-                  <IRocket sz={17}/>{t.submitBtn}
-                </button>
-                <div style={{fontSize:12,color:T.textSubtle,marginTop:8}}>{t.submitSub}</div>
-                {!canSub&&<div style={{fontSize:11,color:T.red,marginTop:6}}>{lang==='ru'?blocked?'Устраните ошибки Gate Check':'Загрузите все обязательные документы':blocked?'Fix Gate Check errors':'Upload all required documents'}</div>}
-              </div>
-              <div style={{textAlign:'center',marginTop:10}}>
-                <button onClick={()=>setPanel('A')} style={{background:'none',border:'none',cursor:'pointer',fontSize:13,color:T.accent,fontFamily:'inherit',fontWeight:600}}>{t.switchToA}</button>
-              </div>
-            </div>
+          </AccordionSection>
+
+          {/* Submit */}
+          <div style={{background:'#fff',borderRadius:16,border:`1.5px solid ${canSub?T.accentBorder:T.border}`,padding:'20px 24px',textAlign:'center',boxShadow:canSub?'0 4px 20px rgba(29,107,252,.12)':'none',transition:'all .3s'}}>
+            <button onClick={canSub?()=>alert(lang==='ru'?'Заявка отправлена! Ожидайте письмо на почту.':'Application submitted! Check your email.'):undefined}
+              style={{display:'inline-flex',alignItems:'center',gap:10,padding:'14px 40px',borderRadius:13,background:canSub?`linear-gradient(135deg,${T.accent},#6366f1)`:'#D1D5DB',border:'none',color:'#fff',fontSize:15,fontWeight:700,cursor:canSub?'pointer':'not-allowed',fontFamily:'inherit',boxShadow:canSub?'0 6px 22px rgba(29,107,252,.4)':'none',transition:'all .2s',letterSpacing:'-0.2px'}}
+              onMouseOver={e=>{if(canSub){e.currentTarget.style.transform='translateY(-1px)';e.currentTarget.style.boxShadow='0 10px 32px rgba(29,107,252,.5)';}}}
+              onMouseOut={e=>{e.currentTarget.style.transform='none';e.currentTarget.style.boxShadow=canSub?'0 6px 22px rgba(29,107,252,.4)':'none';}}>
+              <IRocket sz={17}/>{t.submitBtn}
+            </button>
+            <div style={{fontSize:12,color:T.textSubtle,marginTop:8}}>{t.submitSub}</div>
+            {!canSub&&<div style={{fontSize:11,color:T.red,marginTop:5}}>{lang==='ru'?blocked?'Устраните ошибки Gate Check':'Загрузите все обязательные документы':blocked?'Fix Gate Check errors':'Upload all required documents'}</div>}
           </div>
+        </div>
+
+        {/* Right: AI Sidebar */}
+        <div style={{width:360,flexShrink:0}}>
+          <AIChatSidebar lang={lang} ctx={ctx} extMsg={aiMsg} extKey={aiKey}/>
         </div>
       </div>
 
-      {/* AI float button */}
-      <button onClick={()=>openAI(null)}
-        style={{position:'fixed',bottom:28,right:28,width:56,height:56,borderRadius:'50%',background:`linear-gradient(135deg,${T.accent},#6366f1)`,border:'none',cursor:'pointer',boxShadow:'0 6px 24px rgba(29,107,252,.5)',display:'flex',alignItems:'center',justifyContent:'center',zIndex:500,transition:'transform .18s,box-shadow .18s'}}
-        onMouseOver={e=>{e.currentTarget.style.transform='scale(1.1)';e.currentTarget.style.boxShadow='0 10px 36px rgba(29,107,252,.6)';}}
-        onMouseOut={e=>{e.currentTarget.style.transform='scale(1)';e.currentTarget.style.boxShadow='0 6px 24px rgba(29,107,252,.5)';}}>
-        <IChat sz={24}/>
-      </button>
-
-      {showAI&&<AIChatPanel lang={lang} onClose={()=>setShowAI(false)} extMsg={aiMsg} extKey={aiKey} ctx={ctx}/>}
+      <ToastContainer toasts={toasts} onDismiss={id=>setToasts(t=>t.filter(x=>x.id!==id))}/>
     </div>
   );
 }
+
+// ─── App ──────────────────────────────────────────────────────────────────────
 
 export default function App(){
   const [screen,setScreen]=useState(SC.HOME);
